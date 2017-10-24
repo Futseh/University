@@ -7,7 +7,7 @@ e = 1.60 * 10**(-19) # C (ladningen skal vere negativ pga elektron)
 
 nano = 10**(-9)
 mikro = 10**(-6)
-"""
+
 th = np.linspace(0, mikro, float(mikro) / (100*nano) + 1) # 100 ns per steg
 
 dth = th[1]
@@ -91,10 +91,10 @@ ax.set_zlabel("Posisjon [m]")
 plt.show()
 
 #Task 2
-"""
+
 piko = 10**(-12)
 femto = 10**(-15)
-"""
+
 B = [0, 0, 2] # T
 t_mag = np.linspace(0, 30*piko, piko / femto + 1)
 
@@ -149,7 +149,7 @@ ax.set_xlabel("x Posisjon [m]")
 ax.set_ylabel("y Posisjon [m]")
 ax.set_zlabel("z Posisjon [m]")
 plt.show()
-"""
+
 # Task 3
 
 mp = 1.67 * 10**(-27) # kg
@@ -174,7 +174,7 @@ E_syk = np.zeros(shape=(3, len(t_syk)))
 temp_syk = np.zeros(shape=(3, len(t_syk)))
 
 r_syk[0][0] = rD
-"""
+
 for i in range(len(t_syk) - 1):
     for j in range(3):
         # Cross product
@@ -193,7 +193,6 @@ for i in range(len(t_syk) - 1):
         a_syk[j][i] = (q * E_syk[j][i] + q * temp_syk[j][i]) / mp
         v_syk[j][i + 1] = v_syk[j][i] + a_syk[j][i] * dt_syk
         r_syk[j][i + 1] = r_syk[j][i] + v_syk[j][i + 1] * dt_syk
-"""
 t_syk, a_syk, v_syk, r_syk = calculate(True, False, True, t_syk, a_syk, v_syk, r_syk, E_syk, B, temp_syk)
 
 plt.plot(r_syk[0], r_syk[1])
