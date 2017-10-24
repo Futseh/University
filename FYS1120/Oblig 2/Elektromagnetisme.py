@@ -5,9 +5,52 @@ from mpl_toolkits.mplot3d import Axes3D
 me = 9.11 * 10**(-31) # kg
 e = 1.60 * 10**(-19) # C (ladningen skal vere negativ pga elektron)
 
+mp = 1.67 * 10**(-27) # kg
+q = e
+
 nano = 10**(-9)
 mikro = 10**(-6)
+piko = 10**(-12)
+femto = 10**(-15)
 
+# *args should be given in (t, a, v, r, E, B, temp)
+def calculater(cross, magnet, syklo, *args):
+    t = args[0]
+    a = args[1]
+    v = args[2]
+    r = args[3]
+    E = args[4]
+    B = args[5]
+    temp = args[6]
+    dt = t[1]
+    
+    for i in range(len(t) - 1):
+        for j in range(3):
+            # Cross product
+            if cross:
+                if j == 0:
+                    temp[j][i] = ((v[j + 1][i] * B[2]) - (v[j + 2][i] * B[1]))
+                elif j == 1:
+                    temp[j][i] = ((v[j + 1][i] * B[0]) - (v[j - 1][i] * B[2]))
+                elif j == 2:
+                    temp[j][i] = ((v[j - 2][i] * B[1]) - (v[j - 1][i] * B[0]))        
+            elif syklo:    
+                if (r[0][i] >= -d / 2) or (r[0][i] <= d / 2):
+                    E[0][i] = E0 * np.cos(w * t[i])
+                else:
+                    E[j][i] = 0
+            
+                a[j][i] = (q * E[j][i] + q * temp[j][i]) / mp
+            elif magnet:
+                a_mag[j][i] = (-e / me) * temp[j][i]
+            
+            v[j][i + 1] = v[j][i] + a[j][i] * dt
+            r[j][i + 1] = r[j][i] + v[j][i + 1] * dt
+            temp[j] = r[j][i + 1]
+    
+    return t, a, v, r
+
+"""
 th = np.linspace(0, mikro, float(mikro) / (100*nano) + 1) # 100 ns per steg
 
 dth = th[1]
@@ -92,9 +135,6 @@ plt.show()
 
 #Task 2
 
-piko = 10**(-12)
-femto = 10**(-15)
-
 B = [0, 0, 2] # T
 t_mag = np.linspace(0, 30*piko, piko / femto + 1)
 
@@ -149,11 +189,9 @@ ax.set_xlabel("x Posisjon [m]")
 ax.set_ylabel("y Posisjon [m]")
 ax.set_zlabel("z Posisjon [m]")
 plt.show()
-
+"""
 # Task 3
 
-mp = 1.67 * 10**(-27) # kg
-q = e
 rD = 50 * 10**(-3)
 d = 90 * mikro
 E0 = 25000 / (90 * mikro)
@@ -162,7 +200,7 @@ B = [0, 0, 1.5]
 
 w = (q / mp) * np.sqrt(B[0]**2 + B[1]**2 + B[2]**2)
 
-t_syk = np.linspace(0, 300*nano, nano / (100 * femto) + 1)
+t_syk = np.linspace(0, 300*nano, 1000 )#nano / (100 * femto) + 1)
 
 dt_syk = t_syk[1]
 
@@ -175,25 +213,7 @@ temp_syk = np.zeros(shape=(3, len(t_syk)))
 
 r_syk[0][0] = rD
 
-for i in range(len(t_syk) - 1):
-    for j in range(3):
-        # Cross product
-        if j == 0:
-            temp_syk[j][i] = ((v_syk[j + 1][i] * B[2]) - (v_syk[j + 2][i] * B[1]))
-        elif j == 1:
-            temp_syk[j][i] = ((v_syk[j + 1][i] * B[0]) - (v_syk[j - 1][i] * B[2]))
-        elif j == 2:
-            temp_syk[j][i] = ((v_syk[j - 2][i] * B[1]) - (v_syk[j - 1][i] * B[0]))        
-        
-        if (r_syk[0][i] >= -d / 2) or (r_syk[0][i] <= d / 2):
-            E_syk[0][i] = E0 * np.cos(w * t_syk[i])
-        else:
-            E_syk[j][i] = 0
-        
-        a_syk[j][i] = (q * E_syk[j][i] + q * temp_syk[j][i]) / mp
-        v_syk[j][i + 1] = v_syk[j][i] + a_syk[j][i] * dt_syk
-        r_syk[j][i + 1] = r_syk[j][i] + v_syk[j][i + 1] * dt_syk
-t_syk, a_syk, v_syk, r_syk = calculate(True, False, True, t_syk, a_syk, v_syk, r_syk, E_syk, B, temp_syk)
+t_syk, a_syk, v_syk, r_syk = calculater(True, False, True, t_syk, a_syk, v_syk, r_syk, E_syk, B, temp_syk)
 
 plt.plot(r_syk[0], r_syk[1])
 plt.xlabel("x Posisjon [m]")
@@ -211,40 +231,3 @@ plt.plot(t_syk, v_syk[1], label="vy")
 plt.plot(t_syk, v_syk[2], label="vz")
 plt.legend()
 plt.show()
-
-# *args should be given in (t, a, v, r, E, B, temp)
-def calculate(cross, magnet, syklo, *args):
-    t = args[0]
-    a = args[1]
-    v = args[2]
-    r = args[3]
-    E = args[4]
-    B = args[5]
-    temp = args[6]
-    dt = t[1]
-    
-    for i in range(len(t) - 1):
-        for j in range(3):
-            # Cross product
-            if cross:
-                if j == 0:
-                    temp[j][i] = ((v[j + 1][i] * B[2]) - (v[j + 2][i] * B[1]))
-                elif j == 1:
-                    temp[j][i] = ((v[j + 1][i] * B[0]) - (v[j - 1][i] * B[2]))
-                elif j == 2:
-                    temp[j][i] = ((v[j - 2][i] * B[1]) - (v[j - 1][i] * B[0]))        
-            elif syklo:    
-                if (r[0][i] >= -d / 2) or (r[0][i] <= d / 2):
-                    E[0][i] = E0 * np.cos(w * t[i])
-                else:
-                    E[j][i] = 0
-            
-                a[j][i] = (q * E[j][i] + q * temp[j][i]) / mp
-            elif magnet:
-                a_mag[j][i] = (-e / me) * temp[j][i]
-            
-            v[j][i + 1] = v[j][i] + a[j][i] * dt
-            r[j][i + 1] = r[j][i] + v[j][i + 1] * dt
-            temp[j] = r[j][i + 1]
-    
-    return t, a, v, r
