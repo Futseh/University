@@ -58,6 +58,11 @@ def calculater(cross, magnet, syklo, *args):
             
             v[j][i + 1] = v[j][i] + a[j][i] * dt
             r[j][i + 1] = r[j][i] + v[j][i + 1] * dt
+        
+        if syklo:
+            if np.sqrt(r[0][i]**2 + r[1][i]**2 + r[2][i]**2) >= rD:
+                print np.sqrt(v[0][i]**2 + v[1][i]**2 + v[2][i]**2)
+                break        
     
     return t, a, v, r
 """
@@ -206,8 +211,6 @@ r_syk = np.zeros(shape=(3, len(t_syk)))
 E_syk = np.zeros(shape=(3, len(t_syk)))
 
 temp_syk = np.zeros(shape=(3, len(t_syk)))
-
-#r_syk[0][0] = rD
 
 t_syk, a_syk, v_syk, r_syk = calculater(True, False, True, t_syk, a_syk, v_syk, r_syk, E_syk, B, temp_syk)
 
