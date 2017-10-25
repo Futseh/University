@@ -8,8 +8,8 @@ e = 1.60 * 10**(-19) # C (ladningen skal vere negativ pga elektron)
 mp = 1.67 * 10**(-27) # kg
 q = e
 
-nano = 10**(-9)
 mikro = 10**(-6)
+nano = 10**(-9)
 piko = 10**(-12)
 femto = 10**(-15)
 
