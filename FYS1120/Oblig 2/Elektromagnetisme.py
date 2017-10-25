@@ -42,7 +42,7 @@ def calculater(cross, magnet, syklo, *args):
             if syklo:
                 w = (q / mp) * np.sqrt(B[0]**2 + B[1]**2 + B[2]**2)
                 
-                if (r[0][i] >= -d / 2) or (r[0][i] <= d / 2):
+                if (r[0][i] >= -d / 2) and (r[0][i] <= d / 2):
                     E[0][i] = E0 * np.cos(w * t[i])
                 else:
                     E[j][i] = 0
@@ -177,7 +177,7 @@ plt.show()
 
 B = [0, 0, 1.5]
 
-t_syk = np.linspace(0, 300*nano, 1000 )#nano / (100 * femto) + 1)
+t_syk = np.linspace(0, 300*nano, 300*nano / (100 * femto) + 1)
 
 dt_syk = t_syk[1]
 
