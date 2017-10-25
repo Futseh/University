@@ -13,6 +13,10 @@ mikro = 10**(-6)
 piko = 10**(-12)
 femto = 10**(-15)
 
+rD = 50 * 10**(-3)
+d = 90 * mikro
+E0 = 25000 / (90 * mikro)
+
 # *args should be given in (t, a, v, r, E, B, temp)
 def calculater(cross, magnet, syklo, *args):
     t = args[0]
@@ -34,25 +38,25 @@ def calculater(cross, magnet, syklo, *args):
                     temp[j][i] = ((v[j + 1][i] * B[0]) - (v[j - 1][i] * B[2]))
                 elif j == 2:
                     temp[j][i] = ((v[j - 2][i] * B[1]) - (v[j - 1][i] * B[0]))        
-            elif syklo:    
+            
+            if syklo:
+                w = (q / mp) * np.sqrt(B[0]**2 + B[1]**2 + B[2]**2)
+                
                 if (r[0][i] >= -d / 2) or (r[0][i] <= d / 2):
                     E[0][i] = E0 * np.cos(w * t[i])
                 else:
                     E[j][i] = 0
-            
+                
                 a[j][i] = (q * E[j][i] + q * temp[j][i]) / mp
             elif magnet:
                 a_mag[j][i] = (-e / me) * temp[j][i]
             
             v[j][i + 1] = v[j][i] + a[j][i] * dt
             r[j][i + 1] = r[j][i] + v[j][i + 1] * dt
-            temp[j] = r[j][i + 1]
     
     return t, a, v, r
 
-"""
 th = np.linspace(0, mikro, float(mikro) / (100*nano) + 1) # 100 ns per steg
-
 dth = th[1]
 
 E = [-1.0, -2.0, 5.0] # N/C
@@ -60,7 +64,6 @@ E = [-1.0, -2.0, 5.0] # N/C
 rh = np.zeros(shape=(3, len(th))) # [[x], [y], [z]]
 vh = np.zeros(shape=(3, len(th))) # [[vx], [vy], [vz]]
 ah = np.zeros(shape=(3, len(th))) # [[ax], [ay], [az]]
-
 rah = np.zeros(shape=(3, len(th))) # [[x], [y], [z]] analytisk
 
 #Task 1
@@ -88,15 +91,12 @@ plt.ylabel("Posisjon [m]")
 plt.legend()
 plt.show()
 
-
 tn = np.linspace(0, mikro, float(mikro) / nano + 1) # 1 ns per steg
-
 dtn = tn[1]
 
 rn = np.zeros(shape=(3, len(tn))) # [[x], [y], [z]]
 vn = np.zeros(shape=(3, len(tn))) # [[vx], [vy], [vz]]
 an = np.zeros(shape=(3, len(tn))) # [[ax], [ay], [az]]
-
 ran = np.zeros(shape=(3, len(tn))) # [[x], [y], [z]] analytisk
 
 for i in range(len(tn)):
@@ -117,16 +117,15 @@ plt.show()
 plt.plot(tn, rn[0], label="x")
 plt.plot(tn, rn[1], label="y")
 plt.plot(tn, rn[2], label="z")
-
 plt.xlabel("Tid [s]")
 plt.ylabel("Posisjon [m]")
 plt.legend()
 plt.show()
 
 #3D plot
+
 fig = plt.figure()
 ax = plt.axes(projection="3d")
-
 ax.scatter(rn[0], rn[1], rn[2])
 ax.set_xlabel("Posisjon [m]")
 ax.set_ylabel("Posisjon [m]")
@@ -136,34 +135,18 @@ plt.show()
 #Task 2
 
 B = [0, 0, 2] # T
-t_mag = np.linspace(0, 30*piko, piko / femto + 1)
 
+t_mag = np.linspace(0, 30*piko, piko / femto + 1)
 dt = t_mag[1]
 
 a_mag = np.zeros(shape=(3, len(t_mag)))
 v_mag = np.zeros(shape=(3, len(t_mag)))
 r_mag = np.zeros(shape=(3, len(t_mag)))
-
 temp_mag = np.zeros(shape=(3, len(t_mag)))
 
 v_mag[0][0] = 10000
 
-for i in range(len(t_mag) - 1):
-    for j in range(3):
-        # Cross product
-        if j == 0:
-            temp_mag[j][i] = ((v_mag[j + 1][i] * B[2]) - (v_mag[j + 2][i] * B[1]))
-        elif j == 1:
-            temp_mag[j][i] = ((v_mag[j + 1][i] * B[0]) - (v_mag[j - 1][i] * B[2]))
-        elif j == 2:
-            temp_mag[j][i] = ((v_mag[j - 2][i] * B[1]) - (v_mag[j - 1][i] * B[0]))
-        
-        if r_mag[0][i] >= r_mag[0][0] and r_mag[1][i] <= r_mag[1][0]:
-            print(t_mag[i])
-        
-        a_mag[j][i] = (-e / me) * temp_mag[j][i]
-        v_mag[j][i + 1] = v_mag[j][i] + a_mag[j][i] * dt
-        r_mag[j][i + 1] = r_mag[j][i] + v_mag[j][i + 1] * dt
+t_mag, a_mag, v_mag, r_mag = calculater(True, True, False, t_mag, a_mag, v_mag, r_mag, None, B, temp_mag)
 
 plt.plot(t_mag, r_mag[0], label="x")
 plt.plot(t_mag, r_mag[1], label="y")
@@ -189,16 +172,10 @@ ax.set_xlabel("x Posisjon [m]")
 ax.set_ylabel("y Posisjon [m]")
 ax.set_zlabel("z Posisjon [m]")
 plt.show()
-"""
+
 # Task 3
 
-rD = 50 * 10**(-3)
-d = 90 * mikro
-E0 = 25000 / (90 * mikro)
-
 B = [0, 0, 1.5]
-
-w = (q / mp) * np.sqrt(B[0]**2 + B[1]**2 + B[2]**2)
 
 t_syk = np.linspace(0, 300*nano, 1000 )#nano / (100 * femto) + 1)
 
@@ -211,7 +188,7 @@ E_syk = np.zeros(shape=(3, len(t_syk)))
 
 temp_syk = np.zeros(shape=(3, len(t_syk)))
 
-r_syk[0][0] = rD
+#r_syk[0][0] = rD
 
 t_syk, a_syk, v_syk, r_syk = calculater(True, False, True, t_syk, a_syk, v_syk, r_syk, E_syk, B, temp_syk)
 
