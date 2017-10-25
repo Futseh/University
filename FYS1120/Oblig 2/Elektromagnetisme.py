@@ -17,6 +17,8 @@ rD = 50 * 10**(-3)
 d = 90 * mikro
 E0 = 25000 / (90 * mikro)
 
+tol = 4*10**(-11)
+
 # *args should be given in (t, a, v, r, E, B, temp)
 def calculater(cross, magnet, syklo, *args):
     t = args[0]
@@ -50,12 +52,15 @@ def calculater(cross, magnet, syklo, *args):
                 a[j][i] = (q * E[j][i] + q * temp[j][i]) / mp
             elif magnet:
                 a_mag[j][i] = (-e / me) * temp[j][i]
+                
+                if (r[0][i] >= r[0][0] - tol) and (r[0][i] <= r[0][0] + tol) and (r[1][i] >= r[1][0] - tol) and (r[1][i] <= r[1][0] + tol) and i > 75:
+                    print t[i] 
             
             v[j][i + 1] = v[j][i] + a[j][i] * dt
             r[j][i + 1] = r[j][i] + v[j][i + 1] * dt
     
     return t, a, v, r
-
+"""
 th = np.linspace(0, mikro, float(mikro) / (100*nano) + 1) # 100 ns per steg
 dth = th[1]
 
@@ -131,12 +136,12 @@ ax.set_xlabel("Posisjon [m]")
 ax.set_ylabel("Posisjon [m]")
 ax.set_zlabel("Posisjon [m]")
 plt.show()
-
+"""
 #Task 2
 
 B = [0, 0, 2] # T
 
-t_mag = np.linspace(0, 30*piko, piko / femto + 1)
+t_mag = np.linspace(0, 30*piko, 30 * piko / femto + 1)
 dt = t_mag[1]
 
 a_mag = np.zeros(shape=(3, len(t_mag)))
@@ -163,7 +168,21 @@ plt.xlabel("Tid [s]")
 plt.ylabel("Hastighet [m]")
 plt.legend()
 plt.show()
+"""
+x = np.fft.fft(r_mag[0])
+freqx = np.fft.fftfreq(len(r_mag[0]), t_mag[1] - t_mag[0])
+y = np.fft.fft(r_mag[1])
+freqy = np.fft.fftfreq(len(r_mag[1]), t_mag[1] - t_mag[0])
 
+plt.plot(np.abs(x), np.abs(y))
+plt.show()
+
+plt.plot(freqx / 10**(14), np.abs(x))
+plt.show()
+
+plt.plot(freqy / 10**(14), np.abs(y))
+plt.show()
+"""
 fig = plt.figure()
 ax = plt.axes(projection="3d")
 
@@ -177,7 +196,7 @@ plt.show()
 
 B = [0, 0, 1.5]
 
-t_syk = np.linspace(0, 300*nano, 300*nano / (100 * femto) + 1)
+t_syk = np.linspace(0, 300*nano, 1000 )#300*nano / (100 * femto) + 1)
 
 dt_syk = t_syk[1]
 
