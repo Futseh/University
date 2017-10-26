@@ -53,8 +53,7 @@ def calculater(cross, magnet, syklo, *args):
                     E[j][i] = 0
                 
                 if np.sqrt(r[0][i]**2 + r[1][i]**2 + r[2][i]**2) >= rD and bol:
-                    #print np.sqrt(v[0][i]**2 + v[1][i]**2 + v[2][i]**2)
-                    print i
+                    print np.sqrt(v[0][i]**2 + v[1][i]**2 + v[2][i]**2)
                     bol = False                
                 
                 a[j][i] = (q * E[j][i] + q * temp[j][i]) / mp
