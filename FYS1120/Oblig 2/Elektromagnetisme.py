@@ -30,6 +30,9 @@ def calculater(cross, magnet, syklo, *args):
     temp = args[6]
     dt = t[1]
     
+    bol = True
+    bolr = True
+    
     for i in range(len(t) - 1):
         for j in range(3):
             # Cross product
@@ -49,23 +52,24 @@ def calculater(cross, magnet, syklo, *args):
                 else:
                     E[j][i] = 0
                 
+                if np.sqrt(r[0][i]**2 + r[1][i]**2 + r[2][i]**2) >= rD and bol:
+                    #print np.sqrt(v[0][i]**2 + v[1][i]**2 + v[2][i]**2)
+                    print i
+                    bol = False                
+                
                 a[j][i] = (q * E[j][i] + q * temp[j][i]) / mp
             elif magnet:
                 a_mag[j][i] = (-e / me) * temp[j][i]
                 
-                if (r[0][i] >= r[0][0] - tol) and (r[0][i] <= r[0][0] + tol) and (r[1][i] >= r[1][0] - tol) and (r[1][i] <= r[1][0] + tol) and i > 75:
-                    print t[i] 
+                if (r[0][i] >= r[0][0] - tol) and (r[0][i] <= r[0][0] + tol) and (r[1][i] >= r[1][0] - tol) and (r[1][i] <= r[1][0] + tol) and i > 75 and bolr:
+                    print t[i]
+                    bolr = False
             
             v[j][i + 1] = v[j][i] + a[j][i] * dt
             r[j][i + 1] = r[j][i] + v[j][i + 1] * dt
-        
-        if syklo:
-            if np.sqrt(r[0][i]**2 + r[1][i]**2 + r[2][i]**2) >= rD:
-                print np.sqrt(v[0][i]**2 + v[1][i]**2 + v[2][i]**2)
-                break        
     
     return t, a, v, r
-"""
+
 th = np.linspace(0, mikro, float(mikro) / (100*nano) + 1) # 100 ns per steg
 dth = th[1]
 
@@ -141,8 +145,10 @@ ax.set_xlabel("Posisjon [m]")
 ax.set_ylabel("Posisjon [m]")
 ax.set_zlabel("Posisjon [m]")
 plt.show()
+
 """
-#Task 2
+Task 2
+"""
 
 B = [0, 0, 2] # T
 
@@ -154,7 +160,8 @@ v_mag = np.zeros(shape=(3, len(t_mag)))
 r_mag = np.zeros(shape=(3, len(t_mag)))
 temp_mag = np.zeros(shape=(3, len(t_mag)))
 
-v_mag[0][0] = 10000
+v_mag[0][0] = 5000
+v_mag[2][0] = 2000
 
 t_mag, a_mag, v_mag, r_mag = calculater(True, True, False, t_mag, a_mag, v_mag, r_mag, None, B, temp_mag)
 
@@ -173,21 +180,7 @@ plt.xlabel("Tid [s]")
 plt.ylabel("Hastighet [m]")
 plt.legend()
 plt.show()
-"""
-x = np.fft.fft(r_mag[0])
-freqx = np.fft.fftfreq(len(r_mag[0]), t_mag[1] - t_mag[0])
-y = np.fft.fft(r_mag[1])
-freqy = np.fft.fftfreq(len(r_mag[1]), t_mag[1] - t_mag[0])
 
-plt.plot(np.abs(x), np.abs(y))
-plt.show()
-
-plt.plot(freqx / 10**(14), np.abs(x))
-plt.show()
-
-plt.plot(freqy / 10**(14), np.abs(y))
-plt.show()
-"""
 fig = plt.figure()
 ax = plt.axes(projection="3d")
 
@@ -197,11 +190,13 @@ ax.set_ylabel("y Posisjon [m]")
 ax.set_zlabel("z Posisjon [m]")
 plt.show()
 
-# Task 3
+"""
+Task 3
+"""
 
-B = [0, 0, 1.5]
+B = [0, 0, 1.1]
 
-t_syk = np.linspace(0, 300*nano, 1000 )#300*nano / (100 * femto) + 1)
+t_syk = np.linspace(0, 300*nano, 300*nano / (100 * femto) + 1)
 
 dt_syk = t_syk[1]
 
