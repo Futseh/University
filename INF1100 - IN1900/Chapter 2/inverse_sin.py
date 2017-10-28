@@ -1,0 +1,18 @@
+# Exercise 2.14
+
+from math import asin, sin, pi
+
+a = pi / 2
+
+b = sin(a)
+
+print sin(a)
+print asin(b)
+print a
+
+"""
+Terminal> python inverse_sin.py
+    1.0
+    1.57079632679
+    1.57079632679
+"""
