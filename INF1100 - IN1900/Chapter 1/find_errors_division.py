@@ -1,5 +1,4 @@
 # Exercise 1.14
-# Page 47 in "A Primer on Scientific programming with Python"
 
 # The lines I have in comments are for which line of the Exercise it is
 

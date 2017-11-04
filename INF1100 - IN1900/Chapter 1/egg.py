@@ -1,4 +1,5 @@
 # Exercise 1.12
+
 from math import log, pi
 
 Ms = 47 # weight in grams for a small egg

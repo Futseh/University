@@ -68,7 +68,7 @@ def output_file(outputfile, inputfile):
 	outfile.write('Time \t\t\t Height \n')
 
 	for i in range(len(y)):
-	    outfile.write('%.5f \t %.5f \n' % (t[i], y[i]))
+		outfile.write('%.5f \t %.5f \n' % (t[i], y[i]))
 
 	outfile.write('---------------------')
 	outfile.close()

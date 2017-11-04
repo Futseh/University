@@ -1,3 +1,5 @@
+# Exercise 1.16
+
 from math import tan, pi
 
 a1 = 2
