@@ -51,12 +51,13 @@ def calculater(cross, magnet, syklo, *args):
                     E[0][i] = E0 * np.cos(w * t[i])
                 else:
                     E[j][i] = 0
+                    
+                a[j][i] = (q * E[j][i] + q * temp[j][i]) / mp
                 
                 if np.sqrt(r[0][i]**2 + r[1][i]**2 + r[2][i]**2) >= rD and bol:
                     print np.sqrt(v[0][i]**2 + v[1][i]**2 + v[2][i]**2)
-                    bol = False                
+                    a[j][i] = 0
                 
-                a[j][i] = (q * E[j][i] + q * temp[j][i]) / mp
             elif magnet:
                 a_mag[j][i] = (-e / me) * temp[j][i]
                 
@@ -216,6 +217,8 @@ plt.show()
 plt.plot(t_syk, r_syk[0], label="x")
 plt.plot(t_syk, r_syk[1], label="y")
 plt.plot(t_syk, r_syk[2], label="z")
+plt.xlabel("tid [s]")
+plt.ylabel("Posisjon [m]")
 plt.legend()
 plt.show()
 
