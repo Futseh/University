@@ -4,7 +4,7 @@ n = 64
 m = 0
 
 while m < int(round(n / 2.)):
-    print 2 * m + 1
+    print(2 * m + 1)
     m += 1
 
 """

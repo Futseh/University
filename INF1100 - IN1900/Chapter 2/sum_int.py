@@ -2,15 +2,15 @@
 
 n = 100
 m = 0
-sum = 0
+summ = 0
 
 while m <= n:
-    sum += m
+    summ += m
     m += 1
 
-print sum
+print(summ)
 
-print n * (n + 1) / 2
+print(n * (n + 1) / 2)
 
 """
 Terminal> python sum_int.py

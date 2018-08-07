@@ -6,17 +6,18 @@ h = 0.01
 
 for i in range(n + 1):
     coords.append((1 + i) * h)
+
 for x in range(len(coords)):
-    print '%3.2f' % x
+    print('%3.2f' % x)
 
 # Exerise 2.7 b
 
 coord = [((1 + i) * h) for i in range(n + 1)]
 
-print '\n'
+print('\n')
 
 for x in range(len(coords)):
-    print '%3.2f' % x
+    print('%3.2f' % x)
 
 """
 Terminal> python coor.py

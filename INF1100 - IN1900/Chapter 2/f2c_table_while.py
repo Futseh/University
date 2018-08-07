@@ -3,13 +3,13 @@
 F = 0
 dF = 10
 
-print '------------------------'
-print 'Fahrenheit \t Celcius'
+print('------------------------')
+print('Fahrenheit \t Celcius')
 while F <= 100:
     C = (5 / 9.0) * F - 32
-    print "%g \t\t %.2f" % (F, C)
+    print("%g \t\t %.2f" % (F, C))
     F += dF
-print '------------------------'
+print('------------------------')
 
 """
 Terminal> python f2c_table.py

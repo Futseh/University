@@ -3,15 +3,15 @@
 F = 0
 dF = 10
 
-print '-----------------'
-print 'Fahrenheit \t Celcius \t Approx Celcius'
+print('-----------------')
+print('Fahrenheit \t Celcius \t Approx Celcius')
 
 while F <= 100:
     C = (5 / 9.0) * F - 32
     Ca = (F - 30) / 2
-    print "%g \t\t %.2f \t\t %g" % (F, C, Ca)
+    print('%g \t\t %.2f \t\t %g' % (F, C, Ca))
     F += dF
-print '-----------------'
+print('-----------------')
 
 """
 Terminal> python f2c_approx_table.py

@@ -8,13 +8,13 @@ n = 1.0 # The "energy level" you are on
 
 # Exercise 2.6 a
 
-print "%s \t %s" % ("Level", "Energy")
+print('%s \t %s' % ('Level', 'Energy'))
 while n < 21:
     En = -((me * e**4)/(8 * e0**2 * h**2)) * (1 / n**2)
-    print "---------------------"
-    print "%g |\t %g" % (n, En)
+    print('---------------------')
+    print('%g |\t %g' % (n, En))
     n += 1
-print '\n'
+print('\n')
 
 
 # Exercise 2.6 b
@@ -24,13 +24,13 @@ nf = 5
 
 E = -((me * e**4)/(8 * e0**2 * h**2))
 
-print "%s \t %s \t %s" % ("Level from", "Level to", "Energy")
+print('%s \t %s \t %s' % ('Level from', 'Level to', 'Energy'))
 for a in range(nf):
     for b in range(ni):
         diff = ((1 / float((b + 1)**2)) - (1 / float((a + 1)**2)))
         energy = E * diff
 
-        print "%g \t\t %g \t\t %g" % (b + 1, a + 1, energy)
+        print('%g \t\t %g \t\t %g' % (b + 1, a + 1, energy))
 
 """
 Terminal> python energy_levels.py
