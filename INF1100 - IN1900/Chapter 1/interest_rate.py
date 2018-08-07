@@ -8,7 +8,7 @@ rate = (1 + p / 100.0)**n
 
 money = A * rate
 
-print money
+print(money)
 
 """
 Terminal> python interest_rate.py

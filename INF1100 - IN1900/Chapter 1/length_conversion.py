@@ -6,11 +6,11 @@ feet = inches / 12
 yards = feet / 3
 miles = yards / 1760.0
 
-print "Meters: %g" % meters
-print "Inches: %g" % inches
-print "Feet: %g" % feet
-print "Yards: %g" % yards
-print "Miles: %g" % miles
+print("Meters: %g" % meters)
+print("Inches: %g" % inches)
+print("Feet: %g" % feet)
+print("Yards: %g" % yards)
+print("Miles: %g" % miles)
 
 """
 Terminal> python length_conversion.py

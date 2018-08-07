@@ -6,12 +6,13 @@ m = 0.0
 s = 2.0
 x = 1.0
 
+# It is easier if you split a long equation into parts
 e = exp((-1 / 2.0) * (((x - m) / s)**2))
 f = (1 / (sqrt(2 * pi) * s))
 
 fe = f * e
 
-print fe
+print(fe)
 
 """
 Terminal> python gaussian1.py
