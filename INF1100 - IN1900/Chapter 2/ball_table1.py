@@ -6,24 +6,26 @@ ts = 0
 te = (2 * v0) / g
 n = 0
 
-print '---------------------'
-print 'Time \t Height \n'
+print('---------------------')
+print('Time \t Height \n')
 
 for i in range(ts, int(te + 1), n + 1):
     yt = v0 * i - 0.5 * g * i**2
-    print '%g | \t %.2f' % (i, yt)
-print '--------------------- \n'
+    print('%g | \t %.2f' % (i, yt))
+
+print('--------------------- \n')
 
 # Exercise 2.8 b
 
-print '---------------------'
-print 'Time \t Height \n'
+print('---------------------')
+print('Time \t Height \n')
 
 while ts < te:
     yt = v0 * ts - 0.5 * g * ts**2
-    print '%g | \t %.2f' % (ts, yt)
+    print('%g | \t %.2f' % (ts, yt))
     ts += 1
-print '---------------------'
+
+print('---------------------')
 
 """
 Terminal> python ball_table1.py

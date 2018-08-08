@@ -10,7 +10,7 @@ print q[-1][-2]
 
 for i in q:
     for j in range(len(i)):
-        print i[j]
+        print(i[j])
 
 """
 Terminal> python index_nested_lists.py

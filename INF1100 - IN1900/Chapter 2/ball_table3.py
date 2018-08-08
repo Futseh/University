@@ -21,12 +21,12 @@ for l in range(len(tr)):
 
 ty1 = [t, y]
 
-print '---------------------'
-print 'Time \t Height \n'
+print('---------------------')
+print('Time \t Height \n')
 
 for i in range(len(t)):
-    print '%.2f \t %.2f' % (ty1[0][i], ty1[1][i])
-print '---------------------'
+    print('%.2f \t %.2f' % (ty1[0][i], ty1[1][i]))
+print('---------------------')
 
 ty2 = []
 
@@ -36,11 +36,11 @@ for i in range(len(t)):
     k = [x, z]
     ty2.append(k)
 
-print '---------------------'
-print 'Time \t Height \n'
+print('---------------------')
+print('Time \t Height \n')
 for i in range(len(ty2)):
-    print '%.2f \t %.2f' % (ty2[i][0], ty2[i][1])
-print '---------------------'
+    print('%.2f \t %.2f' % (ty2[i][0], ty2[i][1]))
+print('---------------------')
 
 """
 Terminal> python ball_table3.py

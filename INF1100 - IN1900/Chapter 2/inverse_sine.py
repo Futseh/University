@@ -6,9 +6,9 @@ a = pi / 2
 
 b = sin(a)
 
-print sin(a)
-print asin(b)
-print a
+print(b)
+print(asin(b))
+print(a)
 
 """
 Terminal> python inverse_sin.py

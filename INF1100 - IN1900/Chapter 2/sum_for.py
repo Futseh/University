@@ -7,7 +7,7 @@ M = 100
 for i in range(M):
     s += 1 / float(i + 1)
 
-print s
+print(s)
 
 """
 Terminal> python sum_for.py

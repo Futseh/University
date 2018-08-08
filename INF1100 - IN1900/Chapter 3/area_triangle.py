@@ -39,5 +39,5 @@ test_triangle_area()
 
 """
 Terminal> python area_triangle.py
-    None
+    
 """

@@ -19,13 +19,13 @@ for l in range(len(tr)):
     ys = v0 * yh - 0.5 * g * yh**2
     y.append(ys)
 
-print '---------------------'
-print 'Time \t Height \n'
+print('---------------------')
+print('Time \t Height \n')
 
 for i in range(len(t)):
-    print '%.2f \t %.2f' % (t[i], y[i])
+    print('%.2f \t %.2f' % (t[i], y[i]))
 
-print '---------------------'
+print('---------------------')
 
 """
 Terminal> python ball_table2.py

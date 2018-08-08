@@ -5,7 +5,8 @@ M = 100
 while k <= M:
     s += 1 / k
     k += 1
-print s
+    
+print(s)
 
 """
 Terminal> python sum_while.py

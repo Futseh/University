@@ -9,13 +9,13 @@ for i in range(0, len(F), 1):
     C.append((5 / 9.0) * F[i] - 32)
     C_approx.append((F[i] - 30.0) / 2)
 
-print '----------------------------------'
-print 'Fahrenheit \t Celcius \t Approx Celcius'
+print('----------------------------------')
+print('Fahrenheit \t Celcius \t Approx Celcius')
 
 for j in range(len(F)):
-    print '%.2f \t\t %.2f \t\t %.2f' % (Temp[0][j], Temp[1][j], Temp[2][j])
+    print('%.2f \t\t %.2f \t\t %.2f' % (Temp[0][j], Temp[1][j], Temp[2][j]))
 
-print '----------------------------------'
+print('----------------------------------')
 
 """
 Terminal> python f2c_approx_lists.py

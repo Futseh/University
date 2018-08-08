@@ -18,9 +18,10 @@ def gauss(x, m=0, s=1):
         x_values.append(i)
         gaussian.append(fe)
 
-    print 'x \t\t f(x)'
+    print('x \t\t f(x)')
+    
     for i in range(len(gaussian)):
-        print '%g \t\t %e' % (x_values[i], gaussian[i])
+        print('%g \t\t %e' % (x_values[i], gaussian[i]))
 
 gauss(10, 2, 4)
 

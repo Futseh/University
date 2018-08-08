@@ -5,8 +5,8 @@ from math import exp, sin, pi
 def g(t):
     return exp(-t) * sin(pi * t)
 
-print g(0)
-print g(1)
+print(g(0))
+print(g(1))
 
 """
 Terminal> python expsin.py
