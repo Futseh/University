@@ -5,15 +5,15 @@ m = 0
 summ = 0
 
 while m <= n:
-    summ += m
-    m += 1
+  summ += m
+  m += 1
 
 print(summ)
 
 print(n * (n + 1) / 2)
 
 """
-Terminal> python sum_int.py
-    5050
-    5050
+Terminal> python3 sum_int.py
+  5050
+  5050
 """

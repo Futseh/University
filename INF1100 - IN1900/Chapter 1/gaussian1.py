@@ -15,6 +15,6 @@ fe = f * e
 print(fe)
 
 """
-Terminal> python gaussian1.py
-        0.176032663382
+Terminal> python3 gaussian1.py
+    0.176032663382
 """

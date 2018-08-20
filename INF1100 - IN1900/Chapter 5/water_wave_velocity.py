@@ -33,6 +33,6 @@ bx.set_ylabel('wavespeed in m/s')
 plt.show()
 
 """
-Terminal> python water_wave_velocity.py
+Terminal> python3 water_wave_velocity.py
 
 """

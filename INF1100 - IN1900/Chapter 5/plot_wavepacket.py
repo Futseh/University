@@ -22,6 +22,6 @@ ax.set_ylabel('location')
 plt.show()
 
 """
-Terminal> python plot_wavepacket.py
+Terminal> python3 plot_wavepacket.py
 
 """

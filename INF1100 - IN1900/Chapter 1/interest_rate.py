@@ -11,6 +11,6 @@ money = A * rate
 print(money)
 
 """
-Terminal> python interest_rate.py
-    1157.625
+Terminal> python3 interest_rate.py
+  1157.625
 """

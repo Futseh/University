@@ -4,6 +4,6 @@ a = 1 + 1
 print(a)
 
 """
-Terminal> python 1plus1.py
-    2
+Terminal> python3 1plus1.py
+  2
 """

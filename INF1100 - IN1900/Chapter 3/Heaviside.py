@@ -21,6 +21,6 @@ def test_H():
 test_H()
 
 """
-Terminal> python Heaviside.py
+Terminal> python3 Heaviside.py
 
 """

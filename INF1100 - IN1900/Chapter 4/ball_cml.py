@@ -12,6 +12,6 @@ y = v0*t - 0.5*g*t**2
 print y
 
 """
-Terminal> python ball_cml.py 5 1
+Terminal> python3 ball_cml.py 5 1
 0.095
 """

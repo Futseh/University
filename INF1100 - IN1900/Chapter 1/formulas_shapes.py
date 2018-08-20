@@ -18,9 +18,9 @@ volume_cone = 1.0 / 3 * pi * r ** 2 * 2 * h
 print('The volume of the cone is %.3f' % volume_cone)
 
 """
-Terminal> python formulas_shapes.py
-    The area of the parallelogram is 10.000
-    The area of the square is 4
-    The area of the circle is 7.069
-    The volume of the cone is 23.562
+Terminal> python3 formulas_shapes.py
+  The area of the parallelogram is 10.000
+  The area of the square is 4
+  The area of the circle is 7.069
+  The volume of the cone is 23.562
 """

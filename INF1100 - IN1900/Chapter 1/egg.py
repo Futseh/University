@@ -31,7 +31,7 @@ t = mass * ln
 print(t)
 
 """
-Terminal> python egg.py
-    396.5763425294507
-    315.2178637859262
+Terminal> python3 egg.py
+  396.5763425294507
+  315.2178637859262
 """

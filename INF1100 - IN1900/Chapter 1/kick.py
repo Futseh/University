@@ -30,8 +30,8 @@ print('The gravity force is: %.2f and the drag force is: %.2f' % (Fg, Fd))
 print('The ratio is %.2f' % (Fd / Fg))
 
 """
-Terminal> python kick.py
-    The gravity force is: 4.22 and the drag force is: 10.14
-    The gravity force is: 4.22 and the drag force is: 0.63
-    The ratio is 0.15
+Terminal> python3 kick.py
+  The gravity force is: 4.22 and the drag force is: 10.14
+  The gravity force is: 4.22 and the drag force is: 0.63
+  The ratio is 0.15
 """

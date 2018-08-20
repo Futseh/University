@@ -43,12 +43,12 @@ m = q * V
 print(m)
 
 """
-Terminal> python 1liter.py
-    7.8
-    0.0012
-    0.67
-    0.9
-    1.03
-    10.5
-    21.4
+Terminal> python3 1liter.py
+  7.8
+  0.0012
+  0.67
+  0.9
+  1.03
+  10.5
+  21.4
 """

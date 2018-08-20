@@ -11,8 +11,8 @@ print(asin(b))
 print(a)
 
 """
-Terminal> python inverse_sin.py
-    1.0
-    1.57079632679
-    1.57079632679
+Terminal> python3 inverse_sin.py
+  1.0
+  1.57079632679
+  1.57079632679
 """

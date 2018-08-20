@@ -76,7 +76,7 @@ def output_file(outputfile, inputfile):
 output_file('ball3.dat', 'ball2.dat')
 
 """
-Terminal> python ball_file_read_write.py
+Terminal> python3 ball_file_read_write.py
 		(3.0, [0.042, 0.0519085, 0.10262264, 0.1117, 0.15592, 0.17383923, 0.2094294, 0.21342619, 0.21385894, 0.27, 0.28075, 0.29584013, 0.3464815, 0.35, 0.36807889, 0.372985, 0.39325246, 0.50620017, 0.528, 0.53012, 0.57681501876, 0.57982969])
 		success
 """

@@ -18,7 +18,7 @@ def S(t, n, T):
 def f(t, T):
 	tt = zeros(len(t))
 	for i in t:
-		if 0 < i <  T/2.:
+		if 0 < i < T/2.:
 			tt += 1
 		elif i == T/2.:
 			tt += 0
@@ -42,6 +42,6 @@ plt.legend(['n = 1', 'n = 3', 'n = 20', 'n = 200', 'f(t, T)'])
 plt.show()
 
 """
-Terminal> python sinesum1_plot.py
+Terminal> python3 sinesum1_plot.py
 
 """

@@ -12,7 +12,7 @@ def roots(a, b, c):
 
 		x1 = (-b + dc) / 2. * a
 		x2 = (-b - dc) / 2. * a
-    
+  
 		solutions = [x1, x2]
 	
 		return solutions
@@ -35,7 +35,7 @@ def test_root_float():
 		tol = 1E-14
 		success = abs(expected[i] - float(computed[i])) < tol
 		msg = 'computed=%g != %g (expected)' % (float(computed[i]), expected[i])
-		assert success, msg    
+		assert success, msg  
 
 def test_root_complex():
 	expected = [-1+1.73j, -1-1.73j]
@@ -51,6 +51,6 @@ test_root_float()
 test_root_complex()
 
 """
-Terminal> python roots_quadratic.py
+Terminal> python3 roots_quadratic.py
 
 """

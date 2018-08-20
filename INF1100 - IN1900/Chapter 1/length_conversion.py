@@ -13,10 +13,10 @@ print("Yards: %g" % yards)
 print("Miles: %g" % miles)
 
 """
-Terminal> python length_conversion.py
-    Meters: 640
-    Inches: 25196.9
-    Feet: 2099.74
-    Yards: 699.913
-    Miles: 0.397678
+Terminal> python3 length_conversion.py
+  Meters: 640
+  Inches: 25196.9
+  Feet: 2099.74
+  Yards: 699.913
+  Miles: 0.397678
 """
