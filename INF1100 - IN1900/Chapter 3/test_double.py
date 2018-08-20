@@ -12,3 +12,8 @@ def test_double():
     assert double('hello') == 'hellohello'
 
 test_double()
+
+"""
+Terminal> python3 test_double.py
+
+"""

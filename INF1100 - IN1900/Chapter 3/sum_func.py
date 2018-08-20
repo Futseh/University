@@ -18,3 +18,8 @@ def test_sum_1k():
     assert success, msg
     
 test_sum_1k()
+
+"""
+Terminal> python3 sum_func.py
+
+"""
