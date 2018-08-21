@@ -80,7 +80,9 @@ vh = np.zeros(shape=(3, len(th))) # [[vx], [vy], [vz]]
 ah = np.zeros(shape=(3, len(th))) # [[ax], [ay], [az]]
 rah = np.zeros(shape=(3, len(th))) # [[x], [y], [z]] analytisk
 
-#Task 1
+"""
+Task 1
+"""
 
 for i in range(len(th)):
     for j in range(3):

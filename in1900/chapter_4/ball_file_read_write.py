@@ -11,9 +11,8 @@ def file_read(filename):
 	for i in range(len(data)):
 		for j in range(len(data[i])):
 			if data[i][j] == 'v0:' or data[i][j] == 't:':
-				pass
-			elif float(data[i][j]) > 1.0:
-				v0 = float(data[i][j])
+				if data[i][j] == 'v0:':
+					v0 = float(data[i][j+1])
 			else:
 				t.append(float(data[i][j]))
 
@@ -31,7 +30,7 @@ def test_file_read():
 	file.write('v0: %.2f\n' % v1)
 	file.write('t:\n')
 
-	tt = linspace(0, 1, 25)
+	tt = linspace(0, 1, 26)
 
 	for j in tt:
 		file.write('%.7f\n' % j)
@@ -44,7 +43,7 @@ def test_file_read():
 	else:
 		return 'You have failed in life'
 
-print test_file_read()
+print(test_file_read())
 
 # Exercise 4.14 c
 
