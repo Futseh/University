@@ -10,10 +10,11 @@ def file_read(filename):
 
 	for i in range(len(data)):
 		for j in range(len(data[i])):
-			if data[i][j] == 'v0:' or data[i][j] == 't:':
-				if data[i][j] == 'v0:':
-					v0 = float(data[i][j+1])
-			else:
+			if data[i][j] == 't:':
+				pass
+			elif data[i][j] == 'v0:' and float(data[i][j+1]) > 1.0:
+				v0 = float(data[i][j+1])
+			elif float(data[i][j]) < 1.0:
 				t.append(float(data[i][j]))
 
 	t.sort(key=float)
@@ -30,7 +31,7 @@ def test_file_read():
 	file.write('v0: %.2f\n' % v1)
 	file.write('t:\n')
 
-	tt = linspace(0, 1, 26)
+	tt = linspace(0, 1, 25)
 
 	for j in tt:
 		file.write('%.7f\n' % j)
