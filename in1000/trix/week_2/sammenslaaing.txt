@@ -1,0 +1,24 @@
+a)
+Kode:
+a = 10
+b = "hei!"
+c = a+b
+print(c)
+
+Feilmelding: TypeError: unsupported operand type(s) for +: 'int' and 'str'
+
+b)
+Kode:
+x = "10"
+y = "hei!"
+print(x + y)
+
+Feilmelding: Er ikke noe feil, den printer 10hei!
+
+c)
+Kode:
+i = 10
+j = "12"
+print(i + j)
+
+Feilmelding: TypeError: unsupported operand type(s) for +: 'int' and 'str'
