@@ -1,6 +1,4 @@
-import sys
-
-temp = float(sys.argv[1])
+temp = float(input('Hva er kroppstemperaturen din? '))
 
 if temp < 36.5:
     print('Du har lavere kroppstemperatur enn normalen')

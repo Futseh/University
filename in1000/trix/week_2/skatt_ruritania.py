@@ -1,6 +1,4 @@
-import sys
-
-inntekt = float(sys.argv[1])
+inntekt = float(input('Hva er inntekten din? '))
 
 if inntekt < 10000:
     skatt = inntekt / 10.0
