@@ -12,6 +12,32 @@ def cross(coords):
     canvas.drawLine(x, y, x+150, y+150)
     canvas.drawLine(x, y+150, x+150, y)
 
+def won(X, O):
+    for i in range(3):
+        if X[i] == X[i+3] == X[i+6] == True or O[i] == O[i+3] == O[i+6] == True:
+            return True
+        
+    for i in range(0, 7, 3):    
+        if X[i] == X[i+1] == X[i+2] == True or O[i] == O[i+1 == O[i+2] == True:
+            return True
+    
+    if X[0] == X[4] == X[8] == True or O[0] == O[4] == O[8] == True:
+        return True
+    elif X[2] == X[4] == X[6] == True or O[2] == O[4] == O[6] == True:
+        return True
+    else:
+        return False
+
+
+def busy(pos):
+    if X[pos] or O[pos]:
+        return True
+    else:
+        return False
+
+def play():
+    pass
+
 w = canvas.width()
 h = canvas.height()
 w1 = canvas.width() / 3.0
@@ -28,6 +54,9 @@ canvas.drawLine(0, h2, w, h2)
 
 turn = 0
 
+X = [False for i in range(9)]
+O = [False for i in range(9)]
+
 while True:
     x, y = win.getMouse()
 
@@ -43,47 +72,5 @@ while True:
             cross(s[0])
         else:
             circle(s[0])
-    elif w1 < x < w2 and y < h1:
-        if cros:
-            cross(s[1])
-        else:
-            circle(s[1])
-    elif w2 < x and y < h1:
-        if cros:
-            cross(s[2])
-        else:
-            circle(s[2])
-    elif x < w1 and h1 < y < h2:
-        if cros:
-            cross(s[3])
-        else:
-            circle(s[3])
-    elif w1 < x < w2 and h1 < y < h2:
-        if cros:
-            cross(s[4])
-        else:
-            circle(s[4])
-    elif w2 < x and h1 < y < h2:
-        if cros:
-            cross(s[5])
-        else:
-            circle(s[5])
-    elif x < w1 and h2 < y:
-        if cros:
-            cross(s[6])
-        else:
-            circle(s[6])
-    elif w1 < x < w2 and h2 < y:
-        if cros:
-            cross(s[7])
-        else:
-            circle(s[7])
-    elif w2 < x and h2 < y:
-        if cros:
-            cross(s[8])
-        else:
-            circle(s[8])
-    else:
-        pass
 
 win.wait()
