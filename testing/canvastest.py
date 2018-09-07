@@ -3,41 +3,6 @@ import ezgraphics as ez
 win = ez.GraphicsWindow(600, 600)
 canvas = win.canvas()
 
-def circle(coords):
-    x, y = coords
-    canvas.drawOval(x, y, 150, 150)
-
-def cross(coords):
-    x, y = coords
-    canvas.drawLine(x, y, x+150, y+150)
-    canvas.drawLine(x, y+150, x+150, y)
-
-def won(X, O):
-    for i in range(3):
-        if X[i] == X[i+3] == X[i+6] == True or O[i] == O[i+3] == O[i+6] == True:
-            return True
-        
-    for i in range(0, 7, 3):    
-        if X[i] == X[i+1] == X[i+2] == True or O[i] == O[i+1 == O[i+2] == True:
-            return True
-    
-    if X[0] == X[4] == X[8] == True or O[0] == O[4] == O[8] == True:
-        return True
-    elif X[2] == X[4] == X[6] == True or O[2] == O[4] == O[6] == True:
-        return True
-    else:
-        return False
-
-
-def busy(pos):
-    if X[pos] or O[pos]:
-        return True
-    else:
-        return False
-
-def play():
-    pass
-
 w = canvas.width()
 h = canvas.height()
 w1 = canvas.width() / 3.0
@@ -53,24 +18,104 @@ canvas.drawLine(0, h1, w, h1)
 canvas.drawLine(0, h2, w, h2)
 
 turn = 0
+player = True
 
-X = [False for i in range(9)]
-O = [False for i in range(9)]
+def circle(coords):
+    x, y = coords
+    canvas.drawOval(x, y, 150, 150)
 
-while True:
-    x, y = win.getMouse()
+def cross(coords):
+    x, y = coords
+    canvas.drawLine(x, y, x+150, y+150)
+    canvas.drawLine(x, y+150, x+150, y)
 
-    if turn % 2 == 0:
-        cros = True
-        turn += 1
-    else:
-        cros = False
-        turn += 1
+def won(board):
+    possible = ['X', 'O']
 
-    if x < w1 and y < h1:
-        if cros:
-            cross(s[0])
+    for i in range(3):
+        for j in range(2):
+            if board[i] == board[i+3] == board[i+6] == possible[j]:
+                return True
+        
+    for i in range(0, 7, 3):
+        for j in range(2):
+            if board[i] == board[i+1] == board[i+2] == possible[j]:
+                return True
+    
+    for j in range(2):
+        if board[0] == board[4] == board[8] == possible[j]:
+            return True
+        elif board[2] == board[4] == board[6] == possible[j]:
+            return True
         else:
-            circle(s[0])
+            return False
+
+def busy(board, pos):
+    if board[pos] != '':
+        return True
+    else:
+        return False
+
+def markBoard(board, pos, player, turn):
+    taken = busy(board, pos)
+    
+    if not taken:
+        if player:
+            cross(s[pos])
+            board[pos] = 'X'
+        else:
+            circle(s[pos])
+            board[pos] = 'O'
+        
+        turn += 1
+        return board, turn
+    else:
+        print('That square is taken!')
+        play(turn, player)
+
+def play(turn, player):
+    board = ['' for i in range(9)]
+    
+    game = True
+
+    while game:
+        x, y = win.getMouse()
+
+        if turn % 2 == 0:
+            player = True
+        else:
+            player = False
+
+        if x < w1 and y < h1:
+            board, turn = markBoard(board, 0, player, turn)
+        elif w1 < x < w2 and y < h1:
+            board, turn = markBoard(board, 1, player, turn)
+        elif w2 < x and y < h1:
+            board, turn = markBoard(board, 2, player, turn)
+        elif x < w1 and h1 < y < h2:
+            board, turn = markBoard(board, 3, player, turn)
+        elif w1 < x < w2 and h1 < y < h2:
+            board, turn = markBoard(board, 4, player, turn)
+        elif w2 < x and h1 < y < h2:
+            board, turn = markBoard(board, 5, player, turn)
+        elif x < w1 and h2 < y:
+            board, turn = markBoard(board, 6, player, turn)
+        elif w1 < x < w2 and h2 < y:
+            board, turn = markBoard(board, 7, player, turn)
+        elif w2 < x and h2 < y:
+            board, turn = markBoard(board, 8, player, turn)
+        else:
+            pass
+
+        winner = won(board)
+
+        if winner and player:
+            print('Player 1 is the winner!')
+            game = False
+        elif winner and not player:
+            print('Player 2 is the winner!')
+            game = False
+
+play(turn, player)
 
 win.wait()

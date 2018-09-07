@@ -55,4 +55,4 @@ fig2 	= plt.figure(2)
 ax2 	= fig2.add_subplot(111)
 ax2.quiver(vx, vy, Ex,Ey, units='width', scale=12) # scale er tilpasset for at plottet skal se fint ut
 ax2.set_title("Elektrisk felt")
-#plt.show(block=True)
+plt.show(block=True)
