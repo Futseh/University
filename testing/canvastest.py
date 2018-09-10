@@ -29,23 +29,51 @@ def cross(coords):
     canvas.drawLine(x, y, x+150, y+150)
     canvas.drawLine(x, y+150, x+150, y)
 
-def won(board):
+def won(board, s):
     possible = ['X', 'O']
 
     for i in range(3):
         for j in range(2):
             if board[i] == board[i+3] == board[i+6] == possible[j]:
+                
+                x, y = s[i]
+
+                canvas.setColor("red")
+                canvas.drawLine(x+75, y, x+75, y+550)
+                canvas.setColor("black")
+                
                 return True
         
     for i in range(0, 7, 3):
         for j in range(2):
             if board[i] == board[i+1] == board[i+2] == possible[j]:
+                
+                x, y = s[i]
+
+                canvas.setColor("red")
+                canvas.drawLine(x, y+75, x+550, y+75)
+                canvas.setColor("black")
+
                 return True
     
     for j in range(2):
         if board[0] == board[4] == board[8] == possible[j]:
+                
+            x, y = s[0]
+
+            canvas.setColor("red")
+            canvas.drawLine(x, y, x+550, y+550)
+            canvas.setColor("black")
+
             return True
         elif board[2] == board[4] == board[6] == possible[j]:
+                
+            x, y = s[2]
+
+            canvas.setColor("red")
+            canvas.drawLine(x+150, y, x-400, y+550)
+            canvas.setColor("black")
+
             return True
         else:
             return False
@@ -107,7 +135,7 @@ def play(turn, player):
         else:
             pass
 
-        winner = won(board)
+        winner = won(board, s)
 
         if winner and player:
             print('Player 1 is the winner!')
