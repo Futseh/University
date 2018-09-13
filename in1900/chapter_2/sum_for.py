@@ -2,7 +2,7 @@
 
 s = 0
 k = 1.0
-M = 100
+M = 3
 
 for i in range(M):
   s += 1 / float(i + 1)

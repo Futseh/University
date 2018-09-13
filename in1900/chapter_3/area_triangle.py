@@ -1,7 +1,6 @@
 # Exercise 3.16
 
 import numpy as np
-import math as ma
 
 def triangle_area(vertices):
 
