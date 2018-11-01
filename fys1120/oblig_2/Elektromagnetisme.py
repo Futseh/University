@@ -55,14 +55,14 @@ def calculater(cross, magnet, syklo, *args):
                 a[j][i] = (q * E[j][i] + q * temp[j][i]) / mp
                 
                 if np.sqrt(r[0][i]**2 + r[1][i]**2 + r[2][i]**2) >= rD and bol:
-                    print np.sqrt(v[0][i]**2 + v[1][i]**2 + v[2][i]**2)
+                    print(np.sqrt(v[0][i]**2 + v[1][i]**2 + v[2][i]**2))
                     a[j][i] = 0
                 
             elif magnet:
                 a_mag[j][i] = (-e / me) * temp[j][i]
                 
                 if (r[0][i] >= r[0][0] - tol) and (r[0][i] <= r[0][0] + tol) and (r[1][i] >= r[1][0] - tol) and (r[1][i] <= r[1][0] + tol) and i > 75 and bolr:
-                    print t[i]
+                    print(t[i])
                     bolr = False
             
             v[j][i + 1] = v[j][i] + a[j][i] * dt

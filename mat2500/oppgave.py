@@ -2,6 +2,7 @@ import sympy as sp
 
 theta = sp.symbols('theta')
 phi = sp.symbols('phi')
+lamda = sp.symbols('lamda')
 
 M = sp.Matrix([[1, 0, 0, 0],
                [0, 1, 0, 0],
@@ -15,7 +16,7 @@ sp.pprint(eigenvec)
 
 determinant = M.det()
 
-print(determinant)
+sp.pprint(determinant)
 
 N = sp.Matrix([[sp.cos(phi), -sp.sin(phi), 0, 0],
                [sp.sin(phi),  sp.cos(phi), 0, 0],
@@ -29,4 +30,4 @@ sp.pprint(eigenvec)
 
 determinant = N.det()
 
-print(determinant)
+sp.pprint(determinant)
