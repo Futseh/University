@@ -2,7 +2,7 @@
     \usepackage[utf8]{inputenc}
     \usepackage[norsk]{babel}
     % Standard stuff
-    \usepackage{amsmath,graphicx,varioref,verbatim,amsfonts,geometry}
+    \usepackage{amsmath,graphicx,varioref,verbatim,amsfonts,geometry, amssymb}
     % colors in text
     \usepackage{xcolor}
     % Hyper refs
@@ -60,28 +60,12 @@
     
     \maketitle
     
-    Rotasjons matrisen i 2 dimensjoner:
-    
-    $$\left(
-    \begin{matrix}
-        cos(\theta) & -sin(\theta) \\
-        sin(\theta) &  cos(\theta)
-    \end{matrix}
-    \right)$$
+    I 2 dimensjoner roterer vi om et 0 dimensjonalt objekt, et punkt. I 3 dimensjoner roterer vi om et 1 dimensjonalt objekt, en linje.
+    I 4 dimensjoner roterer vi om et 2 dimensjonalt objekt, et plan. Det er også mulig å rotere rundt 2 plan, bedre kjent som en dobbel rotasjon.
 
-    Rotasjons matrisen i 3 dimensjoner:
+    En av matrisene for en enkel rotasjon, hvor man roterer om 1 plan og holder 1 plan fast, kan se slik ut:
 
-    $$\left(
-    \begin{matrix}
-        1 & 0 & 0 \\
-        0 & cos(\theta) & -sin(\theta) \\
-        0 & sin(\theta) &  cos(\theta)
-    \end{matrix}
-    \right)$$
-
-    Rotasjons matrisen i 4 dimensjoner (enkel rotasjon):
-
-    $$\left(
+    $$R_{\theta} = \left(
     \begin{matrix}
         1 & 0 & 0 & 0 \\
         0 & 1 & 0 & 0 \\
@@ -90,9 +74,10 @@
     \end{matrix}
     \right)$$
 
-    Rotasjons matrisen i 4 dimensjoner (dobbel rotasjon):
+    En av matrisene for en dobbel rotasjon, hvor man roterer rundt 2 plan, kan se slik ut:
 
-    $$\left(
+    $$
+    R_{\phi, \theta} = \left(
     \begin{matrix}
         cos(\phi) & -sin(\phi) & 0 & 0 \\
         sin(\phi) &  cos(\phi) & 0 & 0 \\
@@ -101,5 +86,67 @@
     \end{matrix}
     \right)$$
 
-\end{document}
+    For at en ortogonal operator T skal være en rotasjon, så må den være orienteringsbevarende, $det(T) = 1$
+
+    Sjekker om det stemmer for både en enkel rotasjon og en dobbel rotasjon.
+
+    Enkel rotasjon:
+    $$
+    det(R_{\theta}) = cos(\theta)^{2} + sin(\theta)^{2} = 1
+    $$
+
+    Dobbel rotasjon:
+    $$
+    det(R_{\phi, \theta}) = cos(\phi)^{2} \dot (cos(\theta)^{2} + sin(\theta)^{2}) + sin(\phi)^{2} \dot (cos(\theta)^{2} + sin(\theta)^{2}) = cos(\phi)^{2} + sin(\phi)^{2} = 1
+    $$
+
+    En operator $T$ er i $SO(4)$ hvis og bare hvis $T$ er en rotasjon.
+
+    Viser det for enkel rotasjoner.
+
+    I en bestemt basis er matrisen til en enkel rotasjon gitt ved $R_{\theta}$ som er ortogonalk med determinant 1. Dvs at alle enkel rotasjoner er i $SO(4)$.
+    For å vise den andre implikasjonen la $A$ være standarmatrisen til $T$. Da er $A^{t}A = I$ og $det A = det A^{t} = 1$. Vi vil først vise at $A$ har 1 som egenverdi, som er det samme som å vise 
+    at $det(A - I) = 0$. Merk at $A^{t}(A - I) = (I - A^{t}) = (I - A)^{t}$. Vi har 
+
+    $$ det(A- I) = det(A^{t}) \dot det(A - I) = det A^{t}(A - I) = det(I- A^{t}) = det(-(A^{t} - I)) $$
+
+    Men hvis $B$ er en $4 \times 4$ matrise så er $det(-B) = -det B$. Derfor må $det(A - I) = 0$.
     
+    Velg en egenvekor $v_{1}$ for egenverdien 1 med $||v_{1}|| = 1$. Velg en ortonormal basis $\{v_{2}, v_{3}, v_{4}\}$ for rommet gjennom origo som er ortogonal til $v_{1}$.
+    Da blir $\{v_{1}, v_{2}, v_{3}, v_{4}\}$ en ortonormal basis for $\mathbb{R}^{4}$ og hvis $P$ er matrisen med søyler $v_{1}, v_{2}, v_{3}, v_{4}$ så er $P$ ortogonal.
+    Da må $A' = P^{-1}AP$ også være ortogonal med $det A' = det A = 1$.
+    Nå er 
+
+    $$
+    A = \left(
+    \begin{matrix}
+        1 & 0 & 0 & 0 \\
+        0 & a & b & c \\
+        0 & d & e & f \\
+        0 & g & h & i
+    \end{matrix}
+    \right)
+    $$
+
+Der $\left( \begin{matrix} a & b & c \\ d & e & f \\ g & h & i \end{matrix} \right)$ må være en ortogonal $3 \times 3$ matrise med determinant 1. Men da sier Setning 3.4 at
+
+$$
+\left(
+    \begin{matrix}
+        a & b & c \\
+        d & e & f \\
+        g & h & i
+    \end{matrix}
+\right)
+=
+\left(
+    \begin{matrix}
+        1 & 0 & 0 \\
+        0 & cos(\theta) & -sin(\theta) \\
+        0 & sin(\theta) &  cos(\theta)
+    \end{matrix}
+\right)
+$$
+for en $\theta$ og vi har vist at $T$ er en rotasjon.
+
+\end{document}

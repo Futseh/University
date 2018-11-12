@@ -2,7 +2,6 @@ import sympy as sp
 
 theta = sp.symbols('theta')
 phi = sp.symbols('phi')
-lamda = sp.symbols('lamda')
 
 M = sp.Matrix([[1, 0, 0, 0],
                [0, 1, 0, 0],
