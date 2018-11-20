@@ -7,6 +7,8 @@
     \usepackage{xcolor}
     % Hyper refs
     \usepackage[colorlinks]{hyperref}
+    \usepackage[backend = biber]{biblatex}
+    \addbibresource{bibliography.bib}
     
     % Document formatting
     \setlength{\parindent}{0mm}
@@ -86,7 +88,9 @@
     \end{matrix}
     \right)$$
 
-    For at en ortogonal operator T skal være en rotasjon, så må den være orienteringsbevarende, $det(T) = 1$
+    Hvis $\phi = \theta \neq 0$ i en dobbel rotasjon så kalles det for en isoklinisk rotasjon. Hvis vi setter $\phi = 0$ i dobbel rotasjonen så får vi matrisen for $R_{\theta}$
+
+    For at en ortogonal operator T skal være en rotasjon, så må den være orienteringsbevarende. Det vil si at: $det(T) = 1$
 
     Sjekker om det stemmer for både en enkel rotasjon og en dobbel rotasjon.
 
@@ -97,8 +101,17 @@
 
     Dobbel rotasjon:
     $$
-    det(R_{\phi, \theta}) = cos(\phi)^{2} \dot (cos(\theta)^{2} + sin(\theta)^{2}) + sin(\phi)^{2} \dot (cos(\theta)^{2} + sin(\theta)^{2}) = cos(\phi)^{2} + sin(\phi)^{2} = 1
+    det(R_{\phi, \theta}) = cos(\phi)^{2}(cos(\theta)^{2} + sin(\theta)^{2}) + sin(\phi)^{2}(cos(\theta)^{2} + sin(\theta)^{2}) = cos(\phi)^{2} + sin(\phi)^{2} = 1
     $$
+
+    Egenverdiene til en dobbel rotasjon er:
+    
+    \begin{align*}
+        cos(\phi)+isin(\phi) &= e^{i\phi} \nonumber \\
+        cos(\phi)-isin(\phi) &= e^{-i\phi} \nonumber \\
+        cos(\theta)+isin(\theta) &= e^{i\theta} \nonumber \\
+        cos(\theta)-isin(\theta) &= e^{-i\theta} \nonumber
+    \end{align*}
 
     En operator $T$ er i $SO(4)$ hvis og bare hvis $T$ er en rotasjon.
 
@@ -108,7 +121,7 @@
     For å vise den andre implikasjonen la $A$ være standarmatrisen til $T$. Da er $A^{t}A = I$ og $det A = det A^{t} = 1$. Vi vil først vise at $A$ har 1 som egenverdi, som er det samme som å vise 
     at $det(A - I) = 0$. Merk at $A^{t}(A - I) = (I - A^{t}) = (I - A)^{t}$. Vi har 
 
-    $$ det(A- I) = det(A^{t}) \dot det(A - I) = det A^{t}(A - I) = det(I- A^{t}) = det(-(A^{t} - I)) $$
+    $$ det(A- I) = det(A^{t})det(A - I) = det A^{t}(A - I) = det(I- A^{t}) = det(-(A^{t} - I)) $$
 
     Men hvis $B$ er en $4 \times 4$ matrise så er $det(-B) = -det B$. Derfor må $det(A - I) = 0$.
     
@@ -128,7 +141,7 @@
     \right)
     $$
 
-Der $\left( \begin{matrix} a & b & c \\ d & e & f \\ g & h & i \end{matrix} \right)$ må være en ortogonal $3 \times 3$ matrise med determinant 1. Men da sier Setning 3.4 at
+Der $\left( \begin{matrix} a & b & c \\ d & e & f \\ g & h & i \end{matrix} \right)$ må være en ortogonal $3 \times 3$ matrise med determinant 1. Men da sier Setning 3.4 \cite{kompendium} at
 
 $$
 \left(
@@ -147,6 +160,10 @@ $$
     \end{matrix}
 \right)
 $$
-for en $\theta$ og vi har vist at $T$ er en rotasjon.
+for en $\theta$ og vi har vist at $T$ er en enkel rotasjon.
+
+Viser det for en dobbel rotasjon.
+
+\printbibliography
 
 \end{document}
