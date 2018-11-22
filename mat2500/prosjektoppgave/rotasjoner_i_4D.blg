@@ -1,14 +1,9 @@
-[0] Config.pm:302> INFO - This is Biber 2.9
-[0] Config.pm:305> INFO - Logfile is 'rotasjoner_i_4D.blg'
-[27] biber:313> INFO - === ma. nov. 19, 2018, 11:11:08
-[50] Biber.pm:371> INFO - Reading 'rotasjoner_i_4D.bcf'
-[114] Biber.pm:857> INFO - Found 1 citekeys in bib section 0
-[130] Biber.pm:3981> INFO - Processing section 0
-[145] Biber.pm:4154> INFO - Looking for bibtex format file 'bibliography.bib' for section 0
-[146] bibtex.pm:1468> INFO - LaTeX decoding ...
-[151] bibtex.pm:1294> INFO - Found BibTeX data source 'bibliography.bib'
-[178] UCollate.pm:68> INFO - Overriding locale 'nb-NO' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[178] UCollate.pm:68> INFO - Overriding locale 'nb-NO' defaults 'variable = shifted' with 'variable = non-ignorable'
-[179] Biber.pm:3809> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'nb-NO'
-[184] bbl.pm:617> INFO - Writing 'rotasjoner_i_4D.bbl' with encoding 'UTF-8'
-[186] bbl.pm:720> INFO - Output to rotasjoner_i_4D.bbl
+[1] Config.pm:302> INFO - This is Biber 2.9
+[3] Config.pm:305> INFO - Logfile is 'rotasjoner_i_4D.blg'
+[45] biber:313> INFO - === to. nov. 22, 2018, 15:38:42
+[80] Biber.pm:371> INFO - Reading 'rotasjoner_i_4D.bcf'
+[217] Biber.pm:857> INFO - Found 0 citekeys in bib section 0
+[231] Utils.pm:169> WARN - The file 'rotasjoner_i_4D.bcf' does not contain any citations!
+[250] bbl.pm:617> INFO - Writing 'rotasjoner_i_4D.bbl' with encoding 'UTF-8'
+[250] bbl.pm:720> INFO - Output to rotasjoner_i_4D.bbl
+[251] Biber.pm:110> INFO - WARNINGS: 1
