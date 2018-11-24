@@ -96,7 +96,7 @@
     Denne vil fiksere linjen som ligger på $x_{1}$-aksen, mens alle andre punkter og vektorer, i rommet, vil rotere med vinkel $\theta$
 
     \textbf{Teorem 1} \textit{Gitt et Euklidisk rom E av dimensjon n, for hver ortogonal lineær transformasjon $f \colon E \rightarrow E$ fins det en ortonormal basis $\left( e_{1}, \dots, e_{n} \right)$
-                              slik at matrisen for $f$ med hensyn på denne basis er en blokk diagonal matrise på formen: 
+                              slik at matrisen for $f$ med hensyn på denne basisen er en blokk diagonal matrise på formen: 
                               $$
                               \begin{pmatrix}
                                 A_{1}  &        & \cdots &        \\
@@ -112,7 +112,25 @@
                                 \sin(\theta_{i}) &  \cos(\theta_{i})
                               \end{pmatrix}
                               $$
-                              hvor $0 < \theta_{i} < \pi$ }
+                              hvor $0 < \theta_{i} < \pi$. In particular, egenverdiene av $f_{\mathbb{C}}$ er på formen: $\cos\theta_{i} \pm i\sin\theta_{i}$, $1$, eller $-1$.} \cite{GMA}
+
+    \textit{Proof.} Tilfellet når $n = 1$ er trivielt. Som i beviset for teorem 11.2.9 \cite{GMA}, $f_{\mathbb{C}}$ har en egenverdi $z = \lambda+i\mu$, hvor $\lambda$, $\mu \in \mathbb{R}$.
+                    Siden $f \circ f^{*} = f^{*} \circ f = id$, transformasjonen $f$ er invertibel. Faktisk så har egenverdiene til $f$ en absolutt verdi lik $1$, $\lvert z \rvert = 1$.
+                    Hvis $z \in \mathbb{C}$ er en egenverdi for $f$, og $u$ er en egenvektor for $z$, har vi:
+                    $$
+                    \langle f(u), f(u) \rangle = \langle zu, zu \rangle = z \bar{z} \langle u, u \rangle
+                    $$
+                    og
+                    $$
+                    \langle f(u), f(u) \rangle = \langle u, (f^{*} \circ f)(u) \rangle = \langle u, u \rangle
+                    $$
+                    fra dette så får vi at:
+                    $$
+                    z \bar{z} \langle u, u \rangle = \langle u, u \rangle
+                    $$
+
+                    Siden $u \neq 0$, har vi $z \bar{z} = 1$, som vil si at $\lvert z \rvert = 1$. Som en konsekvens av dette så er egenverdiene av $f_{\mathbb{C}}$ på formen: $\cos\theta_{i} \pm i\sin\theta_{i}$, $1$, eller $-1$.
+                    
 
     Et eksempel på en rotasjons matrise i 4 dimensjoner er:
 

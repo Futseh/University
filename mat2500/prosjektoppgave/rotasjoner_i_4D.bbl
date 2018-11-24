@@ -16,5 +16,31 @@
   {}
 \endgroup
 
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{GMA}{book}{}
+      \name{author}{1}{}{%
+        {{hash=4cf59b50463b475dc0aac665915d2ac1}{%
+           family={Gallier},
+           familyi={G\bibinitperiod},
+           given={Jean},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{4cf59b50463b475dc0aac665915d2ac1}
+      \strng{fullhash}{4cf59b50463b475dc0aac665915d2ac1}
+      \strng{bibnamehash}{4cf59b50463b475dc0aac665915d2ac1}
+      \strng{authorbibnamehash}{4cf59b50463b475dc0aac665915d2ac1}
+      \strng{authornamehash}{4cf59b50463b475dc0aac665915d2ac1}
+      \strng{authorfullhash}{4cf59b50463b475dc0aac665915d2ac1}
+      \field{sortinit}{G}
+      \field{sortinithash}{5e8d2bf9d38de41b1528bd307546008f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Geometric methods and applications : for computer science and engineering}
+      \field{year}{2011}
+    \endentry
+  \enddatalist
+\endrefsection
 \endinput
 
