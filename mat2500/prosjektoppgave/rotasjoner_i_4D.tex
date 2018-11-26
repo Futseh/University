@@ -53,7 +53,6 @@
         \item[\refstepcounter{subproject}(\thesubproject)]
     }{\end{description}}
     
-    
     %opening
     \title{MAT2500 - Prosjektoppgave}
     \author{Jonas Folvik}
@@ -66,34 +65,10 @@
     Vi kan også forestille seg hjulene på en bil i bevegelse eller jorden som går rundt sola, dette er da eksempler på rotasjoner i tre dimensjoner.
     Hvis arket eller mynten som snurrer står stille på samme sted så blir et punkt, et 0 dimensjonalt objekt, holdt fast. Mens i tre dimensjonale rotasjoner så blir en linje, et 1 dimensjonalt objekt, holdt fast.
     På grunn av dette kan man finne ut at ved en rotasjon i et $n$ dimensjonalt system, så vil man rotere rundt $n-2$ dimensjonale objekter.
-    I den fjerde dimensjonen vil man da rotere rundt to dimensjonale objekter, bedre kjent som plan.
 
-    Rotasjons matrisen i to dimensjoner kan se slik ut:
+    I denne oppgaven vil jeg bevise hvordan oppbyggingen til en rotasjons matrise er og beskrive rotasjoner i to, tre og fire dimensjoner.
 
-    $$
-    \left(
-    \begin{matrix}
-        \cos(\theta) & -\sin(\theta) \\
-        \sin(\theta) &  \cos(\theta)
-    \end{matrix}
-    \right)
-    $$
-
-    Denne vil da holde fast, fiksere, punktet $(0, 0)$, bedre kjent som Origo, mens alle andre punkter og vektorer, i planet, vil rotere med en vinkel $\theta$.
-    
-    Et eksempel på en rotasjons matrise i tre dimensjoner er:
-
-    $$
-    \left(
-    \begin{matrix}
-        1 & 0 & 0 \\
-        0 & \cos(\theta) & -\sin(\theta) \\
-        0 & \sin(\theta) &  \cos(\theta)
-    \end{matrix}
-    \right)
-    $$
-
-    Denne vil fiksere linjen som ligger på $x_{1}$-aksen, mens alle andre punkter og vektorer, i rommet, vil rotere med vinkel $\theta$
+    Dette teoremet er teorem 11.3.3 i \cite{GMA}.
 
     \textbf{Teorem 1} \textit{Gitt et Euklidisk rom E av dimensjon n, for hver ortogonal lineær transformasjon $f \colon E \rightarrow E$ fins det en ortonormal basis $\left( e_{1}, \dots, e_{n} \right)$
                               slik at matrisen for $f$ med hensyn på denne basisen er en blokk diagonal matrise på formen: 
@@ -112,10 +87,10 @@
                                 \sin(\theta_{i}) &  \cos(\theta_{i})
                               \end{pmatrix}
                               $$
-                              hvor $0 < \theta_{i} < \pi$. In particular, egenverdiene av $f_{\mathbb{C}}$ er på formen: $\cos\theta_{i} \pm i\sin\theta_{i}$, $1$, eller $-1$.} \cite{GMA}
+                              hvor $0 < \theta_{i} < \pi$. Spesielt, så er egenverdiene av $f_{\mathbb{C}}$ på formen: $\cos\theta_{i} \pm i\sin\theta_{i}$, $1$, eller $-1$.} 
 
-    \textit{Proof.} Tilfellet når $n = 1$ er trivielt. Som i beviset for teorem 11.2.9 \cite{GMA}, $f_{\mathbb{C}}$ har en egenverdi $z = \lambda+i\mu$, hvor $\lambda$, $\mu \in \mathbb{R}$.
-                    Siden $f \circ f^{*} = f^{*} \circ f = id$, transformasjonen $f$ er invertibel. Faktisk så har egenverdiene til $f$ en absolutt verdi lik $1$, $\lvert z \rvert = 1$.
+    \textit{Bevis.} Tilfellet når $n = 1$ er trivielt. Som i beviset for teorem 11.2.9 \cite{GMA}, har $f_{\mathbb{C}}$ en egenverdi $z = \lambda+i\mu$, hvor $\lambda$, $\mu \in \mathbb{R}$.
+                    Siden $f \circ f^{*} = f^{*} \circ f = id$, så er transformasjonen $f$ invertibel. Faktisk så har egenverdiene til $f$ en absolutt verdi lik $1$.
                     Hvis $z \in \mathbb{C}$ er en egenverdi for $f$, og $u$ er en egenvektor for $z$, har vi:
                     $$
                     \langle f(u), f(u) \rangle = \langle zu, zu \rangle = z \bar{z} \langle u, u \rangle
@@ -130,9 +105,84 @@
                     $$
 
                     Siden $u \neq 0$, har vi $z \bar{z} = 1$, som vil si at $\lvert z \rvert = 1$. Som en konsekvens av dette så er egenverdiene av $f_{\mathbb{C}}$ på formen: $\cos\theta_{i} \pm i\sin\theta_{i}$, $1$, eller $-1$.
-                    
+                    Teoremet følger da umiddelbart fra teorem 11.2.9 \cite{GMA}, hvor betingelsen $\mu > 0$ impliserer at $\sin \theta_{i} > 0$, og dermed, $0 < \theta_{i} < \pi$. $\square$
 
-    Et eksempel på en rotasjons matrise i 4 dimensjoner er:
+    Ut ifra dette teoremet så kan vi vise at en rotasjons matrise for to dimensjoner kan skrives som dette:
+                
+    $$
+    \left(
+    \begin{matrix}
+        \cos(\theta) & -\sin(\theta) \\
+        \sin(\theta) &  \cos(\theta)
+    \end{matrix}
+    \right)
+    $$
+            
+    Denne rotasjons matrisen vil fiksere punktet $\left( 0, 0 \right)$, Origo, og rotere alle andre punkter om origo med vinkel $\theta$.
+    Vi kan vise dette ved å multiplisere matrisen med et punkt $p = \left( \begin{smallmatrix} x_{1} \\ x_{2} \end{smallmatrix} \right)$. Vi får da at:
+
+    $$
+    \left(
+    \begin{matrix}
+        \cos(\theta) & -\sin(\theta) \\
+        \sin(\theta) &  \cos(\theta)
+    \end{matrix}
+    \right)
+    \left(
+    \begin{matrix}
+        x_{1} \\ x_{2}
+    \end{matrix}
+    \right) = 
+    \left(
+    \begin{matrix}
+        x_{1}\cos(\theta) - x_{2}\sin(\theta) \\
+        x_{1}\sin(\theta) + x_{2}\cos(\theta)
+    \end{matrix}
+    \right)
+    $$
+
+    Her ser vi at det eneste punktet som ikke blir rotert er origo, $\left( 0, 0 \right)$.
+
+    Vi kan også vise at en rotasjons matrise i tre dimensjoner kan se ut som denne:
+            
+    $$
+    \left(
+    \begin{matrix}
+        1 & 0 & 0 \\
+        0 & \cos(\theta) & -\sin(\theta) \\
+        0 & \sin(\theta) &  \cos(\theta)
+    \end{matrix}
+    \right)
+    $$
+            
+    Denne vil da fiksere linjen som ligger på $x_{1}$-aksen og alle andre punkter vil rotere rundt den linjen med vinkel $\theta$.
+    Vi kan vise at dette stemmer ved å multiplisere med et vilkårlig punkt $p = \left( \begin{smallmatrix} x_{1} \\ x_{2} \\ x_{3} \end{smallmatrix} \right)$. Vi får da at:
+
+    $$
+    \left(
+    \begin{matrix}
+        1 & 0 & 0 \\
+        0 & \cos(\theta) & -\sin(\theta) \\
+        0 & \sin(\theta) &  \cos(\theta)
+    \end{matrix}
+    \right)
+    \left(
+    \begin{matrix}
+        x_{1} \\ x_{2} \\ x_{3}
+    \end{matrix}
+    \right) =
+    \left(
+    \begin{matrix}
+        x_{1} \\
+        x_{2}\cos(\theta) - x_{3}\sin(\theta) \\
+        x_{2}\sin(\theta) + x_{3}\cos(\theta)
+    \end{matrix}
+    \right)
+    $$
+
+    Her ser vi at uansett hva punktet $p$ er så vil ikke $x_{1}$-koordinaten endre seg, dermed vil alle punktene langs $x_{1}$-aksen være fiksert.
+
+    Rotasjoner i fire dimensjoner er litt mer spesielle, da man roterer rundt forskjellige plan.
 
     $$
     R_{\phi, \theta} = \left(
@@ -147,8 +197,7 @@
 
     Denne typen rotasjoner blir ofte kalt for en dobbel rotasjon, da man roterer rundt to plan.
     I dette eksempelet roterer vi om $x_{1}x_{2}$-planet med vinkel $\phi$ og vi roterer om $x_{3}x_{4}$-planet med vinkel $\theta$
-    Hvis $\phi = \theta \neq 0$ i en dobbel rotasjon så kalles det for en isoklinisk rotasjon. Hvis vi setter $\phi = 0$ i dobbel rotasjonen så får vi matrisen for $R_{\theta}$
-    Når vi setter $\phi = 0$ så får vi matrisen:
+    Hvis $\phi = \theta \neq 0$ i en dobbel rotasjon så kalles det for en isoklinisk rotasjon. Hvis vi setter $\phi = 0$ i dobbel rotasjonen så får vi matrisen for $R_{\theta}$.
 
     $$
     R_{\theta} = \left(
