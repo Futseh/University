@@ -19,6 +19,32 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global}
+    \entry{kompendium}{booklet}{}
+      \name{author}{2}{}{%
+        {{hash=3ca93ed7d55733cc2661706727833919}{%
+           family={Christophersen},
+           familyi={C\bibinitperiod},
+           given={Jan\bibnamedelima Arthur},
+           giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=519a5cd440e552da2ff12985f0a84c8c}{%
+           family={Ranestad},
+           familyi={R\bibinitperiod},
+           given={Kristian},
+           giveni={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{e4e98e20f0acc8481fed40ab334b1deb}
+      \strng{fullhash}{e4e98e20f0acc8481fed40ab334b1deb}
+      \strng{bibnamehash}{e4e98e20f0acc8481fed40ab334b1deb}
+      \strng{authorbibnamehash}{e4e98e20f0acc8481fed40ab334b1deb}
+      \strng{authornamehash}{e4e98e20f0acc8481fed40ab334b1deb}
+      \strng{authorfullhash}{e4e98e20f0acc8481fed40ab334b1deb}
+      \field{sortinit}{C}
+      \field{sortinithash}{963e9d84a3da2344e8833203de5aed05}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Geometri - MAT2500}
+      \field{year}{2017}
+    \endentry
     \entry{GMA}{book}{}
       \name{author}{1}{}{%
         {{hash=4cf59b50463b475dc0aac665915d2ac1}{%
@@ -39,6 +65,32 @@
       \field{labeltitlesource}{title}
       \field{title}{Geometric methods and applications : for computer science and engineering}
       \field{year}{2011}
+    \endentry
+    \entry{rotationsapp}{unpublished}{}
+      \name{author}{2}{}{%
+        {{hash=229f3a7de474a130f6af08ea198f6dcc}{%
+           family={Perez-Gracia},
+           familyi={P\bibinithyphendelim G\bibinitperiod},
+           given={Alba},
+           giveni={A\bibinitperiod}}}%
+        {{hash=7e0b1e35d225ddd8e3268d520dc53a41}{%
+           family={Thomas},
+           familyi={T\bibinitperiod},
+           given={Frederico},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{d68260948768ede80f76da4108d78c00}
+      \strng{fullhash}{d68260948768ede80f76da4108d78c00}
+      \strng{bibnamehash}{d68260948768ede80f76da4108d78c00}
+      \strng{authorbibnamehash}{d68260948768ede80f76da4108d78c00}
+      \strng{authornamehash}{d68260948768ede80f76da4108d78c00}
+      \strng{authorfullhash}{d68260948768ede80f76da4108d78c00}
+      \field{sortinit}{P}
+      \field{sortinithash}{8d51b3d5b78d75b54308d706b9bbe285}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{On Cayley's Factorization of 4D Rotations and Applications}
+      \field{year}{2010}
     \endentry
   \enddatalist
 \endrefsection

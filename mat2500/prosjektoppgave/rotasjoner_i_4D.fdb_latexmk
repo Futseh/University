@@ -1,13 +1,13 @@
 # Fdb version 3
-["biber rotasjoner_i_4D"] 1543256842 "rotasjoner_i_4D.bcf" "rotasjoner_i_4D.bbl" "rotasjoner_i_4D" 1543257448
-  "bibliography.bib" 1542983377 429 a5399a872bb889d60de39c95857991f8 ""
-  "rotasjoner_i_4D.bcf" 1543257448 88434 38a03b3950ef05d842270df938a9cb6b ""
+["biber rotasjoner_i_4D"] 1543307793 "rotasjoner_i_4D.bcf" "rotasjoner_i_4D.bbl" "rotasjoner_i_4D" 1543323873
+  "bibliography.bib" 1543306902 478 f045ba15bd1a78149e70355202babb22 ""
+  "rotasjoner_i_4D.bcf" 1543323872 88594 86862e0812b6b9bb2b62eb4af0dbb854 ""
   (generated)
-  "rotasjoner_i_4D.bbl"
   "rotasjoner_i_4D.blg"
-["pdflatex"] 1543257447 "/home/jonas/Documents/git/university/mat2500/prosjektoppgave/rotasjoner_i_4D.tex" "rotasjoner_i_4D.pdf" "rotasjoner_i_4D" 1543257448
+  "rotasjoner_i_4D.bbl"
+["pdflatex"] 1543323871 "/home/jonas/Documents/git/university/mat2500/prosjektoppgave/rotasjoner_i_4D.tex" "rotasjoner_i_4D.pdf" "rotasjoner_i_4D" 1543323873
   "/etc/texmf/web2c/texmf.cnf" 1540205586 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/jonas/Documents/git/university/mat2500/prosjektoppgave/rotasjoner_i_4D.tex" 1543257446 9463 e3ef2141b357956f7b574d09941fa06f ""
+  "/home/jonas/Documents/git/university/mat2500/prosjektoppgave/rotasjoner_i_4D.tex" 1543323871 12871 2e41aa1bf111f7746905d0e458ec2dd7 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1480098698 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1480098698 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -127,15 +127,15 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1520210507 32485 c64754543d8ac501bea6e75e209ea521 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1540205648 2700761 ac0584cc9514ab21918550a6948c4ee2 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1540205666 4127350 9a7862ba30b9939a3a9bf63d1012cbb1 ""
-  "rotasjoner_i_4D.aux" 1543257448 1303 7ca37fe51f306b6ac38611175b4fdf8f ""
-  "rotasjoner_i_4D.bbl" 1543256861 1462 a2b9ec2aa876e4223986450414ab9238 "biber rotasjoner_i_4D"
-  "rotasjoner_i_4D.out" 1543257447 0 d41d8cd98f00b204e9800998ecf8427e ""
-  "rotasjoner_i_4D.run.xml" 1543257448 2413 36e06d920c729bb5ffb26ff9fcedb510 ""
-  "rotasjoner_i_4D.tex" 1543257446 9463 e3ef2141b357956f7b574d09941fa06f ""
+  "rotasjoner_i_4D.aux" 1543323872 1597 b6b2bd101635f174abc3fdc8b85367f0 ""
+  "rotasjoner_i_4D.bbl" 1543307794 3681 b39cbf5186015d09505d2fc2d0054818 "biber rotasjoner_i_4D"
+  "rotasjoner_i_4D.out" 1543323872 0 d41d8cd98f00b204e9800998ecf8427e ""
+  "rotasjoner_i_4D.run.xml" 1543323872 2413 36e06d920c729bb5ffb26ff9fcedb510 ""
+  "rotasjoner_i_4D.tex" 1543323871 12871 2e41aa1bf111f7746905d0e458ec2dd7 ""
   (generated)
-  "rotasjoner_i_4D.aux"
+  "rotasjoner_i_4D.bcf"
   "rotasjoner_i_4D.pdf"
   "rotasjoner_i_4D.log"
-  "rotasjoner_i_4D.run.xml"
+  "rotasjoner_i_4D.aux"
   "rotasjoner_i_4D.out"
-  "rotasjoner_i_4D.bcf"
+  "rotasjoner_i_4D.run.xml"

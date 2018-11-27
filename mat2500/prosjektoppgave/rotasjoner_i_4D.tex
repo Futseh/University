@@ -65,10 +65,9 @@
     Vi kan også forestille seg hjulene på en bil i bevegelse eller jorden som går rundt sola, dette er da eksempler på rotasjoner i tre dimensjoner.
     Hvis arket eller mynten som snurrer står stille på samme sted så blir et punkt, et 0 dimensjonalt objekt, holdt fast. Mens i tre dimensjonale rotasjoner så blir en linje, et 1 dimensjonalt objekt, holdt fast.
     På grunn av dette kan man finne ut at ved en rotasjon i et $n$ dimensjonalt system, så vil man rotere rundt $n-2$ dimensjonale objekter.
+    Ut ifra denne informasjon så kan vi vise at i fire dimensjonale rotasjoner så roterer man rommet rundt to dimensjonale objekter.
 
-    I denne oppgaven vil jeg bevise hvordan oppbyggingen til en rotasjons matrise er og beskrive rotasjoner i to, tre og fire dimensjoner.
-
-    Dette teoremet er teorem 11.3.3 i \cite{GMA}.
+    I denne oppgaven vil jeg bevise hvordan oppbyggingen til en rotasjons matrise er og beskrive enkelt rotasjoner i to og tre dimensjoner, før jeg beskriver litt mer detaljert om rotasjoner i fire dimensjoner.
 
     \textbf{Teorem 1} \textit{Gitt et Euklidisk rom E av dimensjon n, for hver ortogonal lineær transformasjon $f \colon E \rightarrow E$ fins det en ortonormal basis $\left( e_{1}, \dots, e_{n} \right)$
                               slik at matrisen for $f$ med hensyn på denne basisen er en blokk diagonal matrise på formen: 
@@ -87,7 +86,7 @@
                                 \sin(\theta_{i}) &  \cos(\theta_{i})
                               \end{pmatrix}
                               $$
-                              hvor $0 < \theta_{i} < \pi$. Spesielt, så er egenverdiene av $f_{\mathbb{C}}$ på formen: $\cos\theta_{i} \pm i\sin\theta_{i}$, $1$, eller $-1$.} 
+                              hvor $0 < \theta_{i} < \pi$. Spesielt, så er egenverdiene av $f_{\mathbb{C}}$ på formen: $\cos\theta_{i} \pm i\sin\theta_{i}$, $1$, eller $-1$.} \cite{GMA}
 
     \textit{Bevis.} Tilfellet når $n = 1$ er trivielt. Som i beviset for teorem 11.2.9 \cite{GMA}, har $f_{\mathbb{C}}$ en egenverdi $z = \lambda+i\mu$, hvor $\lambda$, $\mu \in \mathbb{R}$.
                     Siden $f \circ f^{*} = f^{*} \circ f = id$, så er transformasjonen $f$ invertibel. Faktisk så har egenverdiene til $f$ en absolutt verdi lik $1$.
@@ -156,7 +155,7 @@
     $$
             
     Denne vil da fiksere linjen som ligger på $x_{1}$-aksen og alle andre punkter vil rotere rundt den linjen med vinkel $\theta$.
-    Vi kan vise at dette stemmer ved å multiplisere med et vilkårlig punkt $p = \left( \begin{smallmatrix} x_{1} \\ x_{2} \\ x_{3} \end{smallmatrix} \right)$. Vi får da at:
+    Vi kan sjekke om dette stemmer ved å multiplisere med et vilkårlig punkt $p = \left( \begin{smallmatrix} x_{1} \\ x_{2} \\ x_{3} \end{smallmatrix} \right)$. Vi får da at:
 
     $$
     \left(
@@ -182,22 +181,85 @@
 
     Her ser vi at uansett hva punktet $p$ er så vil ikke $x_{1}$-koordinaten endre seg, dermed vil alle punktene langs $x_{1}$-aksen være fiksert.
 
-    Rotasjoner i fire dimensjoner er litt mer spesielle, da man roterer rundt forskjellige plan.
+    Rotasjoner i fire dimensjoner er litt mer spesielle, da man roterer rundt forskjellige plan. Det finnes to forskjellige typer rotasjoner. Det er mulig å rotere rundt to plan og rundt et plan.
+    Roterer man rundt et plan så kalles det for en enkel rotasjon og roterer man rundt to plan kalles det for en dobbel rotasjon. En av rotasjons matrisene til en dobbelrotasjon kan se slik ut:
 
     $$
     R_{\phi, \theta} = \left(
     \begin{matrix}
-        \cos(\phi) & -\sin(\phi) & 0 & 0 \\
-        \sin(\phi) &  \cos(\phi) & 0 & 0 \\
+        \cos(\theta_{1}) & -\sin(\theta_{1}) & 0 & 0 \\
+        \sin(\theta_{1}) &  \cos(\theta_{1}) & 0 & 0 \\
+        0 & 0 & \cos(\theta_{2}) & -\sin(\theta_{2}) \\
+        0 & 0 & \sin(\theta_{2}) &  \cos(\theta_{2})
+    \end{matrix}
+    \right)
+    $$
+
+    I dette eksempelet roterer vi om $x_{1}x_{2}$-planet med vinkel $\phi$ og vi roterer om $x_{3}x_{4}$-planet med vinkel $\theta$
+    La oss sjekke hva som vil bli fiksert under en dobbel rotasjon. Vi velger et vilkårlig punkt $p = \left( \begin{smallmatrix} x_{1} \\ x_{2} \\ x_{3} \\ x_{4} \end{smallmatrix} \right)$. Vi får da at:
+
+    $$
+    \left(
+    \begin{matrix}
+        \cos(\theta_{1}) & -\sin(\theta_{1}) & 0 & 0 \\
+        \sin(\theta_{1}) &  \cos(\theta_{1}) & 0 & 0 \\
+        0 & 0 & \cos(\theta_{2}) & -\sin(\theta_{2}) \\
+        0 & 0 & \sin(\theta_{2}) &  \cos(\theta_{2})
+    \end{matrix}
+    \right)
+    \left(
+    \begin{matrix}
+        x_{1} \\ x_{2} \\ x_{3} \\ x_{4}
+    \end{matrix}
+    \right) = 
+    \left(
+    \begin{matrix}
+        x_{1}\cos(\theta_{1}) - x_{2}\sin(\theta_{1}) \\
+        x_{1}\sin(\theta_{1}) + x_{2}\cos(\theta_{1}) \\
+        x_{3}\cos(\theta_{2}) - x_{4}\sin(\theta_{2}) \\
+        x_{3}\sin(\theta_{2}) + x_{4}\cos(\theta_{2})
+    \end{matrix}
+    \right)
+    $$
+
+    Her ser vi at det eneste punktet som blir fiksert er punktet $\left( 0, 0, 0, 0 \right)$, også kjent som origo.
+
+    Hvis $\theta_{1} = \theta_{2} \neq 0$ i en dobbel rotasjon så kalles det for en isoklinisk rotasjon. Det finnes to typer isokliniske rotasjoner, hvor disse typene er venstre-isoklinisk, det vil si at $\theta_{1} = \theta_{2}$.
+    Man kan også ha høyre-isoklinisk rotasjon hvor $\theta_{1} = -\theta_{2}$. \cite{rotationsapp}. Isokliniske rotasjoner har noen spesielle egenskaper som er \cite{rotationsapp}:
+
+    \begin{enumerate}
+        \item Sammensetningen av to høyre- (venstre-) isokliniske er en høyre- (venstre-) isoklinisk rotasjon.
+        \item Sammensetningen av en høyre- og en venstre-isoklinisk rotasjon er kommunativ.
+        \item Hvilken som helst fire dimensjonal rotasjon kan dekomponeres til sammensetningen av en høyre- og en venstre-isoklinisk rotasjon.
+    \end{enumerate}
+
+    Matrisen til en venstre-isoklinisk rotasjon hvor $\theta_{1} = \theta_{2} = \theta$, vil se ut som dette:
+
+    $$
+    \left(
+    \begin{matrix}
+        \cos(\theta) & -\sin(\theta) & 0 & 0 \\
+        \sin(\theta) &  \cos(\theta) & 0 & 0 \\
         0 & 0 & \cos(\theta) & -\sin(\theta) \\
         0 & 0 & \sin(\theta) &  \cos(\theta)
     \end{matrix}
     \right)
     $$
 
-    Denne typen rotasjoner blir ofte kalt for en dobbel rotasjon, da man roterer rundt to plan.
-    I dette eksempelet roterer vi om $x_{1}x_{2}$-planet med vinkel $\phi$ og vi roterer om $x_{3}x_{4}$-planet med vinkel $\theta$
-    Hvis $\phi = \theta \neq 0$ i en dobbel rotasjon så kalles det for en isoklinisk rotasjon. Hvis vi setter $\phi = 0$ i dobbel rotasjonen så får vi matrisen for $R_{\theta}$.
+    Matrisen til en høyre-isoklinisk rotasjon, hvor $\theta_{1} = -\theta_{2}$, vil se ut som dette:
+
+    $$
+    \left(
+    \begin{matrix}
+        \cos(\theta_{1}) & -\sin(\theta_{1}) & 0 & 0 \\
+        \sin(\theta_{1}) &  \cos(\theta_{1}) & 0 & 0 \\
+        0 & 0 &  \cos(\theta_{2}) & \sin(\theta_{2}) \\
+        0 & 0 & -\sin(\theta_{2}) & \cos(\theta_{2})
+    \end{matrix}
+    \right)
+    $$
+
+    Hvis vi setter $\phi = 0$ i en dobbel rotasjonen, for eksempel i $R_{\phi, \theta}$, så får vi matrisen for $R_{\theta}$.
 
     $$
     R_{\theta} = \left(
@@ -210,18 +272,22 @@
     \right)
     $$
 
-    Denne rotasjonen fikserer $x_{1}x_{2}$-planet og roterer $x_{3}x_{4}$-planet med vinkel $\theta$. Dette er et eksempel på en rotasjon som kalles for en enkel rotasjon.
+    Denne rotasjonen fikserer $x_{1}x_{2}$-planet og roterer $x_{3}x_{4}$-planet med vinkel $\theta$. Dette er et eksempel på en enkel rotasjon.
+    Vi kan se at $x_{1}x_{2}$-planet blir fiksert, da de to koordinatene ikke vil endres ved en rotasjon.
 
-    For at en ortogonal operator T skal være en rotasjon, så må den være orienteringsbevarende. Det vil si at: $det(T) = 1$
+    Fram til nå har vi bevist oppbyggingen til en rotasjons matrise og vist hva som blir fiksert under en rotasjon i to, tre og fire dimensjoner.
+    VI har fram til nå antatt at matrisene vi har oppgitt er rotasjons matriser. For å bevise at det faktisk er en rotasjons matrise, kan vi sjekke at de har determinant lik $1$.\cite{kompendium}
 
     Sjekker om det stemmer for en dobbel rotasjon og en enkel rotasjon. Bruker $R_{\phi, \theta}$ og $R_{\theta}$:
     $$
-    \det(R_{\phi, \theta}) = \cos(\phi)^{2}(\cos(\theta)^{2} + \sin(\theta)^{2}) + \sin(\phi)^{2}(\cos(\theta)^{2} + \sin(\theta)^{2}) = \cos(\phi)^{2} + \sin(\phi)^{2} = 1
+    \det(R_{\phi, \theta}) = \cos^{2}(\phi)(\cos^{2}(\theta) + \sin^{2}(\theta)) + \sin^{2}(\phi)(\cos^{2}(\theta) + \sin^{2}(\theta)) = \cos^{2}(\phi) + \sin^{2}(\phi) = 1
     $$
     $$
-    \det(R_{\theta}) = \cos(\theta)^{2} + \sin(\theta)^{2} = 1
-    $$    
+    \det(R_{\theta}) = \cos^{2}(\theta) + \sin^{2}(\theta) = 1
+    $$
 
-\printbibliography
+    Her ser vi at determinanten til begge matrisene er lik 1 og oppbyggingen av matrisene stemmer overens med Teorem 1. Det vil da si at begge matrisene er rotasjoner.
+
+    \printbibliography
 
 \end{document}
