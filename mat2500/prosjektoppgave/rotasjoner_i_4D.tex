@@ -195,7 +195,7 @@
     \right)
     $$
 
-    I dette eksempelet roterer vi om $x_{1}x_{2}$-planet med vinkel $\phi$ og vi roterer om $x_{3}x_{4}$-planet med vinkel $\theta$
+    I dette eksempelet roterer vi om $x_{1}x_{2}$-planet med vinkel $\phi$ og vi roterer om $x_{3}x_{4}$-planet med vinkel $\theta$.
     La oss sjekke hva som vil bli fiksert under en dobbel rotasjon. Vi velger et vilkårlig punkt $p = \left( \begin{smallmatrix} x_{1} \\ x_{2} \\ x_{3} \\ x_{4} \end{smallmatrix} \right)$. Vi får da at:
 
     $$
@@ -272,8 +272,32 @@
     \right)
     $$
 
-    Denne rotasjonen fikserer $x_{1}x_{2}$-planet og roterer $x_{3}x_{4}$-planet med vinkel $\theta$. Dette er et eksempel på en enkel rotasjon.
-    Vi kan se at $x_{1}x_{2}$-planet blir fiksert, da de to koordinatene ikke vil endres ved en rotasjon.
+    Her ser vi at $x_{1}x_{2}$-planet blir fiksert under en rotasjon med denne matrisen.
+    La oss sjekke om dette stemmer.
+
+    $$
+    \left(
+    \begin{matrix}
+        1 & 0 & 0 & 0 \\
+        0 & 1 & 0 & 0 \\
+        0 & 0 & \cos(\theta) & -\sin(\theta) \\
+        0 & 0 & \sin(\theta) &  \cos(\theta)
+    \end{matrix}
+    \right)
+    \left(
+    \begin{matrix}
+        x_{1} \\ x_{2} \\ x_{3} \\ x_{4}
+    \end{matrix}
+    \right) =
+    \left(
+    \begin{matrix}
+        x_{1} \\
+        x_{2} \\
+        x_{3}\cos(\theta) - x_{4}\sin(\theta) \\
+        x_{3}\sin(\theta) + x_{4}\cos(\theta)
+    \end{matrix}
+    \right)
+    $$
 
     Fram til nå har vi bevist oppbyggingen til en rotasjons matrise og vist hva som blir fiksert under en rotasjon i to, tre og fire dimensjoner.
     VI har fram til nå antatt at matrisene vi har oppgitt er rotasjons matriser. For å bevise at det faktisk er en rotasjons matrise, kan vi sjekke at de har determinant lik $1$.\cite{kompendium}
@@ -287,6 +311,34 @@
     $$
 
     Her ser vi at determinanten til begge matrisene er lik 1 og oppbyggingen av matrisene stemmer overens med Teorem 1. Det vil da si at begge matrisene er rotasjoner.
+
+    I denne oppgaven har vi bevist at oppbyggingen av rotasjons matriser i $n$ dimensjoner er en blokk matrise, hvor diagonalen er enten
+    $$
+    \left(
+    \begin{matrix}
+        \cos(\theta) & -\sin(\theta) \\
+        \sin(\theta) &  \cos(\theta)
+    \end{matrix}
+    \right)
+    $$
+    $$
+    \left(
+    \begin{matrix}
+        1 & 0 \\
+        0 & 1
+    \end{matrix}
+    \right)
+    $$
+    $$
+    \left(
+    \begin{matrix}
+        -1 &  0 \\
+         0 & -1
+    \end{matrix}
+    \right)
+    $$
+
+    Vi har også vist eksempler på rotasjons matriser i to, tre og fire dimensjoner. Vi gikk litt mer detaljert om de to forskjellige typene rotasjoner i fire dimensjoner.
 
     \printbibliography
 
